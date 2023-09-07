@@ -10,17 +10,16 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">General</li>
+          <li class="breadcrumb-item">Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section">
+    {{-- <section class="section">
       <div class="row">
         <div class="col-lg-12">
 
-          <div class="card table-responsive">
+          <div class="card">
             <div class="card-body">
               <h5 class="card-title">Default Table</h5>
 
@@ -28,7 +27,7 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Position</th>
                     <th scope="col">Age</th>
@@ -95,7 +94,21 @@
                     <td>2011-04-19</td>
                   </tr>
                    <tr>
-                    <th scope="row">7</th>
+                    <th scope="row">8</th>
+                    <td>Raheem Lehner</td>
+                    <td>Dynamic Division Officer</td>
+                    <td>47</td>
+                    <td>2011-04-19</td>
+                  </tr>
+                   <tr>
+                    <th scope="row">8</th>
+                    <td>Raheem Lehner</td>
+                    <td>Dynamic Division Officer</td>
+                    <td>47</td>
+                    <td>2011-04-19</td>
+                  </tr>
+                   <tr>
+                    <th scope="row">8</th>
                     <td>Raheem Lehner</td>
                     <td>Dynamic Division Officer</td>
                     <td>47</td>
@@ -112,7 +125,7 @@
         </div>
 
       </div>
-    </section>
+    </section> --}}
 
   </main><!-- End #main -->
 

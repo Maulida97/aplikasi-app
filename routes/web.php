@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
 use App\Http\Controllers\PerawatController;
@@ -43,5 +44,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-Route::get('/perawat', [PerawatController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/perawat', [PerawatController::class, 'index'])->name('perawat')->middleware('auth');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
+Route::get('/pasien', [AdminController::class, 'index'])->name('pasien')->middleware('auth');
+
 
