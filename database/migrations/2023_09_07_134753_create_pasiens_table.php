@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('pasiens', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('');
-
+            $table->integer('bangsal_id')->nullable();
+            $table->integer('kamar_id')->nullable();
+            $table->integer('no_tempet_tidur');
+            $table->date('tanggal');
+            $table->integer('penyakit');
+            $table->string('jenis_infus');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
+use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\DashboardController;
 
 
@@ -42,3 +43,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/perawat', [PerawatController::class, 'index'])->name('dashboard')->middleware('auth');
+
