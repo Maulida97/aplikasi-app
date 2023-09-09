@@ -50,11 +50,21 @@ Route::get('/perawat', [PerawatController::class, 'index'])->name('perawat')->mi
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
 Route::get('/pasien', [AdminController::class, 'index'])->name('pasien')->middleware('auth');
 
-Route::get('/bangsal', [BangsalController::class, 'index'])->name('bangsal')->middleware('auth');
+
+Route::get('/bangsal', [BangsalController::class, 'list'])->name('bangsal')->middleware('auth');
+Route::post('/add', [BangsalController::class, 'store'])->name('bangsal.add')->middleware('auth');
+Route::get('/hapus/{id}', [BangsalController::class, 'delete'])->name('bangsal.hapus')->middleware('auth');
 
 
-Route::get('/penyakit', [PenyakitController::class, 'index'])->name('penyakit')->middleware('auth');
-Route::get('penyakit/create', [PenyakitController::class, 'create'])->name('penyakit.create')->middleware('auth');
+
+
+Route::get('/penyakit', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
+Route::post('/save', [PenyakitController::class, 'store'])->name('penyakit.save')->middleware('auth');
+Route::get('/delete/{id}', [PenyakitController::class, 'delete'])->name('penyakit.delete')->middleware('auth');
+
+// Route::get('admin/subjects', [SubjectController::class, 'list'])->name('subjects');
+// Route::post('/save', [SubjectController::class, 'store'])->name('subject.save');
+// Route::get('/delete/{id}', [SubjectController::class, 'delete'])->name('subject.delete');
 
 
 
