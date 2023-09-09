@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
+use App\Http\Controllers\BangsalController;
 use App\Http\Controllers\PerawatController;
+use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\DashboardController;
 
 
@@ -47,5 +49,16 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/perawat', [PerawatController::class, 'index'])->name('perawat')->middleware('auth');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
 Route::get('/pasien', [AdminController::class, 'index'])->name('pasien')->middleware('auth');
+
+Route::get('/bangsal', [BangsalController::class, 'index'])->name('bangsal')->middleware('auth');
+
+
+Route::get('/penyakit', [PenyakitController::class, 'index'])->name('penyakit')->middleware('auth');
+Route::get('penyakit/create', [PenyakitController::class, 'create'])->name('penyakit.create')->middleware('auth');
+
+
+
+
+
 
 

@@ -45,14 +45,14 @@
           </li><!-- End Profile Page Nav -->
 
           <li class="nav-item collapsed">
-              <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url(' ')}}">
+              <a class="nav-link collapsed {{checkRouteActive('bangsal')}}" href="{{url('bangsal')}}">
                   <i class="ri-database-2-fill" ></i>
                   <span>Bangsal</span>
               </a>
           </li><!-- End Profile Page Nav -->
 
           <li class="nav-item collapsed">
-              <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url(' ')}}">
+              <a class="nav-link collapsed {{checkRouteActive('penyakit')}}" href="{{url('penyakit')}}">
                   <i class="ri-database-2-fill" ></i>
                   <span>Penyakit</span>
               </a>
