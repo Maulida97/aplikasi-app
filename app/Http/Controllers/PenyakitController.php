@@ -39,13 +39,20 @@ class PenyakitController extends Controller
     {
         $params = $request->all();
         $data = PenyakitService::add($params);
-        return redirect('/penyakit');
+         if(!isset($request['id'])){
+            return redirect('/penyakit')->with('success', 'Berhasil menambahkan data');
+        }else{
+            return redirect('/penyakit')->with('successEdit', 'Berhasil mengedit data');
+        }
+        // return redirect('/penyakit');
     }
 
     public function delete($id)
     {
         $data = PenyakitService::deletePenyakit($id);
-        return redirect()->back()->with('message',$data);
+        // return redirect()->back()->with('message',$data);
+        return redirect()->back()->with('success_hapus', 'Berhasil dihapus');
+
     }
 }
 

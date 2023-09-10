@@ -7,16 +7,16 @@
 <div class="content-wrapper">
    <main id="main" class="content-wrapper">
 
-    {{-- <div class="pagetitle ">
+    <div class="pagetitle ">
       <h1>General Tables</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
           <li class="breadcrumb-item">Dashboard</li>
-          <li class="breadcrumb-item active">Penyakit</li>
+          <li class="breadcrumb-item active">Bangsal</li>
         </ol>
       </nav>
-    </div><!-- End Page Title --> --}}
+    </div><!-- End Page Title -->
 
     <section class="section">
       <div class="row">
@@ -26,7 +26,7 @@
             <div class="card-body">
               <h5 class="card-title">Tabel Bangsal</h5>
               <!-- Default Table -->
-              <table class="table datatable">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">No</th>
@@ -36,16 +36,19 @@
                   </tr>
                 </thead>
                 <tbody>
+                    {{-- @php
+                    $no = 1;
+                    @endphp --}}
                     @foreach($data as $key => $val)    
                   <tr>
-                    <th scope="row">{{ $val->id  }}</th>
+                    <th scope="row">{{ $key + $data->firstItem() }}</th>
                     <td>{{ $val->nama_bangsal }}</td>
                     {{-- <td>{{ $val->tetesan }}</td> --}}
                     <td>
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaledit{{ $val->id }}">Edit</a>
 
                           <a href="{{ route('bangsal.hapus', ['id' => $val->id]) }}"
-                            class="btn btn-danger">Delete</a>
+                            class="btn btn-danger hapus">Delete</a>
   
                     </td>
                     
@@ -80,6 +83,46 @@
 @endsection
 
 @section('js')
+ 
+@endsection
+
+@section('script')
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+
+    {{-- <script src="dist/sweetalert2.all.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+    <script>
+        @if (session()->has('success'))
+            swal("Success!", "Data Berhasil dibuat", "success");
+        @endif
+        @if (session()->has('successEdit'))
+            swal("Success!", "Data Berhasil diedit", "success");
+        @endif
+		    @if (session()->has('success_hapus'))
+            swal("Success!", "Data Berhasil dihapus", "success");
+        @endif
+        $('.hapus').click(function() {
+            var id = $(this).attr('data-id');
+            swal({
+                    title: "Apakah Anda Yakin?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "admin/delete/" + id;
+                    } else {
+                        swal("Batal menghapus akun!");
+                    }
+                });
+        });
+
+    // swal("Hello world!");
+        
+    </script>
 @endsection
 
 

@@ -37,14 +37,23 @@ public function list(Request $request)
     public function store(Request $request)
     {
         $params = $request->all();
+
+        
         $data = BangsalService::add($params);
-        return redirect('/bangsal');
+        if(!isset($request['id'])){
+            return redirect('/bangsal')->with('success', 'Berhasil menambahkan data');
+        }else{
+            return redirect('/bangsal')->with('successEdit', 'Berhasil mengedit data');
+        }
+        // return redirect('/bangsal');
     }
 
     public function delete($id)
     {
         $data = BangsalService::deleteBangsal($id);
-        return redirect()->back()->with('message',$data);
+        // return redirect()->back()->with('message',$data);
+        return redirect()->back()->with('success_hapus', 'Berhasil dihapus');
+
     }
 
 

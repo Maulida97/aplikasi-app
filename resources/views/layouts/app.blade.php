@@ -29,6 +29,14 @@
   <!-- Template Main CSS File -->
   <link href="{{asset('niceadmin')}}/assets/css/style.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css
+    " rel="stylesheet">
+
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: May 30 2023 with Bootstrap v5.3.0
@@ -733,8 +741,19 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('niceadmin')}}/assets/js/main.js"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 @yield('js')
+@yield('script')
+@yield('script2')
+
+
    
 </body>
+  
+
 
 </html>
