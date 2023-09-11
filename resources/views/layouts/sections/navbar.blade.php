@@ -38,7 +38,7 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
                             <h6>{{ auth()->user()->name }}</h6>
-                            <span>Petugas</span>
+                            <span>{{ auth()->user()->user_type }}</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">

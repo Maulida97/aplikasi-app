@@ -15,7 +15,7 @@
          <li class="nav-heading">Pages</li>
 
            <li class="nav-item collapsed">
-             <a class="nav-link collapsed {{checkRouteActive('pasien')}}" href="{{url('pasien')}}">
+             <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url('')}}">
                  <i class="bi bi-person" ></i>
                  <span>Pasien</span>
              </a>
@@ -38,7 +38,7 @@
          <li class="nav-heading">Master Data</li>
 
          <li class="nav-item collapsed">
-              <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url(' ')}}">
+              <a class="nav-link collapsed {{checkRouteActive('kamar')}}" href="{{url('kamar')}}">
                   <i class="ri-database-2-fill" ></i>
                   <span>Kamar</span>
               </a>
@@ -62,6 +62,13 @@
               <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url(' ')}}">
                   <i class="ri-database-2-fill" ></i>
                   <span>Alat</span>
+              </a>
+          </li><!-- End Profile Page Nav -->
+
+          <li class="nav-item collapsed">
+              <a class="nav-link collapsed {{checkRouteActive('jamDinas')}}" href="{{url('jamDinas')}}">
+                  <i class="ri-database-2-fill" ></i>
+                  <span>Jam Dinas</span>
               </a>
           </li><!-- End Profile Page Nav -->
 

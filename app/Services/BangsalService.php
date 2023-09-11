@@ -27,7 +27,7 @@ class BangsalService
             $data = Bangsal::paginate(10);
         }
 
-      
+        
         Paginator::useBootstrap();
         return $data;
     }

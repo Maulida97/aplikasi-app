@@ -19,9 +19,8 @@ class BangsalController extends Controller
     //     return view('admin.bangsal.index');
     // }
 
-public function list(Request $request)
+    public function list(Request $request)
     {
-        // $eduStages = EducationStage::all();
         $data = BangsalService::BangsalList($request);
         return view('admin.bangsal.index',compact('data'));
     }

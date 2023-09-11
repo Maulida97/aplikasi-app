@@ -47,7 +47,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('/perawat', [PerawatController::class, 'index'])->name('perawat')->middleware('auth');
-Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
+
+
+Route::get('/admin', [AdminController::class, 'list'])->name('admin')->middleware('auth');
+Route::post('/admin/save', [AdminController::class, 'store'])->name('admin.save')->middleware('auth');
+Route::get('/admin/delete/{id}', [BangsalController::class, 'delete'])->name('admin.delete')->middleware('auth');
+
 Route::get('/pasien', [AdminController::class, 'index'])->name('pasien')->middleware('auth');
 
 
@@ -61,6 +66,12 @@ Route::get('/bangsal/hapus/{id}', [BangsalController::class, 'delete'])->name('b
 Route::get('/penyakit', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
 Route::post('/penyakit/save', [PenyakitController::class, 'store'])->name('penyakit.save')->middleware('auth');
 Route::get('/penyakit/delete/{id}', [PenyakitController::class, 'delete'])->name('penyakit.delete')->middleware('auth');
+
+Route::get('/jamDinas', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
+
+Route::get('/kamar', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
+
+
 
 // Route::get('admin/subjects', [SubjectController::class, 'list'])->name('subjects');
 // Route::post('/save', [SubjectController::class, 'store'])->name('subject.save');

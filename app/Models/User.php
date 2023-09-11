@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\Perawat;
+
+
+
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,13 +23,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'username',
-        'email',
-        'password',
-    ];
-
+    // protected $fillable = [
+    //     'name',
+    //     'username',
+    //     'email',
+    //     'password',
+    // ];
+    protected $guarded= ['id'];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,4 +49,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function admin()
+    {
+        return $this->hasOne(Admin::class,'user_id');
+    }
+    public function perawat()
+    {
+        return $this->hasOne(Perawat::class,'user_id');
+    }
+
+
 }
