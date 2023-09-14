@@ -16,13 +16,13 @@ class AdminService
     public static function AdminList(Request $request)
     {
         if($request->has('keywords')){
-            // $data = Admin::leftJoin('users', 'users.id', 'admins.user_id')->select('users.*', 'admins.*')
-            // ->where(function ($row) use ($request){
-            //         $row->where(function ($query) use ($request) {
-            //             $query->where('users.name', 'like', '%' . $request->keywords . '%')
-            //                 ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
-            //         });
-            // })->paginate(10);
+            $data = Admin::leftJoin('users', 'users.id', 'admins.user_id')->select('users.*', 'admins.*')
+            ->where(function ($row) use ($request){
+                    $row->where(function ($query) use ($request) {
+                        $query->where('users.name', 'like', '%' . $request->keywords . '%')
+                            ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
+                    });
+            })->paginate(10);
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
@@ -39,10 +39,10 @@ class AdminService
     public static function add($params)
     {
         // dd($params);
-        $username = $params['name'].rand(pow(10, 8 - 1), pow(10, 8) -1);
+        // $username = $params['name'].rand(pow(10, 8 - 1), pow(10, 8) -1);
         DB::beginTransaction();
         // try {
-            $inputUser['username'] = $username;
+            $inputUser['username'] = $params['username'];
             $inputUser['user_type'] = 'admin';
             $inputUser['name'] = $params['name'];
             $inputUser['email'] = $params['email'];
@@ -54,7 +54,9 @@ class AdminService
             // }   
             if (isset($params['id'])) {
                 // dd($params['id']);
+                // dd($params);
                 $petugas =  Admin::find($params['id']);
+                // dd($petugas);
                 $petugas->update([]);
                 $user = $petugas->user()->update($inputUser);
             }else{
@@ -68,16 +70,17 @@ class AdminService
         //     return $th;
         // }
     }
-    public static function AdminDetail($id)
-    {
-        $data = Admin::with('user')->find($id);
-        return $data;
-    }
-    public static function AdminEdit($id)
-    {
-        $data = Admin::with('user')->find($id);
-        return $data;
-    }
+    // public static function AdminDetail($id)
+    // {
+    //     $data = Admin::with('user')->find($id);
+    //     return $data;
+    // }
+    // public static function AdminEdit($id)
+    // {
+    //     $data = Admin::with('user')->find($id);
+    //     return $data;
+    // }
+
     public static function deleteAdmin($id)
     {
         $data = Admin::with('user')->find($id);

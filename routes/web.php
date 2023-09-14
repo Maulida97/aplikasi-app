@@ -46,12 +46,17 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-Route::get('/perawat', [PerawatController::class, 'index'])->name('perawat')->middleware('auth');
+
+
+Route::get('/perawat', [PerawatController::class, 'list'])->name('perawat')->middleware('auth');
+Route::post('/perawat/save', [PerawatController::class, 'store'])->name('perawat.save')->middleware('auth');
+Route::get('/perawat/delete/{id}', [PerawatController::class, 'delete'])->name('perawat.delete')->middleware('auth');
+
 
 
 Route::get('/admin', [AdminController::class, 'list'])->name('admin')->middleware('auth');
 Route::post('/admin/save', [AdminController::class, 'store'])->name('admin.save')->middleware('auth');
-Route::get('/admin/delete/{id}', [BangsalController::class, 'delete'])->name('admin.delete')->middleware('auth');
+Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete')->middleware('auth');
 
 Route::get('/pasien', [AdminController::class, 'index'])->name('pasien')->middleware('auth');
 

@@ -57,6 +57,8 @@
                   @endforeach
                 </tbody>
               </table>
+              {{ $data->links() }}
+
               <!-- End Default Table Example -->
             </div>
         @include('admin.admin.from')
