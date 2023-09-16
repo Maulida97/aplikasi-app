@@ -17,13 +17,13 @@ class PerawatService
     public static function PerawatList(Request $request)
     {
         if($request->has('keywords')){
-             $data = Perawat::leftJoin('users', 'users.id', 'petugas.user_id')->select('users.*', 'petugas.*')
-            ->where(function ($row) use ($request){
-                    $row->where(function ($query) use ($request) {
-                        $query->where('users.name', 'like', '%' . $request->keywords . '%')
-                            ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
-                    });
-            })->paginate(5);
+            //  $data = Perawat::leftJoin('users', 'users.id', 'petugas.user_id')->select('users.*', 'petugas.*')
+            // ->where(function ($row) use ($request){
+            //         $row->where(function ($query) use ($request) {
+            //             $query->where('users.name', 'like', '%' . $request->keywords . '%')
+            //                 ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
+            //         });
+            // })->paginate(5);
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
@@ -44,7 +44,7 @@ class PerawatService
         DB::beginTransaction();
         // try {
             $inputUser['username'] = $params['username'];
-            $inputUser['user_type'] = 'perawat';
+            $inputUser['user_type'] = 'petugas';
             $inputUser['name'] = $params['name'];
             $inputUser['email'] = $params['email'];
             $inputUser['nip'] = $params['nip'];
@@ -56,13 +56,15 @@ class PerawatService
             if (isset($params['id'])) {
                 // dd($params['id']);
                 // dd($params);
-                $petugas =  Perawat::where('user_id',$params['id']);
-                dd($petugas);
-                $petugas->update([]);
-                $user = $petugas->user()->update($inputUser);
+                $user =  User::with('perawat')->find($params['id']);
+                // dd($petugas);
+                // dd($inputUser);
+                $user->update($inputUser);
+                $petugas = $user->perawat()->update([]);
+
             }else{
                 $user = User::create($inputUser);
-                $perawat = $data->perawat()->create([]);
+                $perawat = $user->perawat()->create([]);
             }
             DB::commit();
         //     return $user;
@@ -84,7 +86,7 @@ class PerawatService
 
 
 
-    public static function deletePerawat($id)
+    public static function deletePasien($id)
     {
         $data = Perawat::with('user')->find($id);
         $data->delete();

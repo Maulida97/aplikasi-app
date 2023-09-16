@@ -5,28 +5,30 @@ namespace App\Services;
 use DB;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Perawat;
+use App\Models\Pasien;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Request;
 
 
 
-class AdminService
+class PasienService
 {
-    public static function AdminList(Request $request)
+    public static function PasientList(Request $request)
     {
         if($request->has('keywords')){
-            $data = Admin::leftJoin('users', 'users.id', 'admins.user_id')->select('users.*', 'admins.*')
+             $data = Perawat::leftJoin('users', 'users.id', 'petugas.user_id')->select('users.*', 'petugas.*')
             ->where(function ($row) use ($request){
                     $row->where(function ($query) use ($request) {
                         $query->where('users.name', 'like', '%' . $request->keywords . '%')
                             ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
                     });
-            })->paginate(10);
+            })->paginate(5);
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
-            $data = Admin::paginate(10);
+            $data = Pasien::paginate(10);
         }
 
       
@@ -36,14 +38,14 @@ class AdminService
     }
 
 
-    public static function add($params)
+      public static function add($params)
     {
         // dd($params);
         // $username = $params['name'].rand(pow(10, 8 - 1), pow(10, 8) -1);
         DB::beginTransaction();
         // try {
             $inputUser['username'] = $params['username'];
-            $inputUser['user_type'] = 'admin';
+            $inputUser['user_type'] = 'petugas';
             $inputUser['name'] = $params['name'];
             $inputUser['email'] = $params['email'];
             $inputUser['nip'] = $params['nip'];
@@ -55,21 +57,18 @@ class AdminService
             if (isset($params['id'])) {
                 // dd($params['id']);
                 // dd($params);
-                // $petugas =  Admin::find($params['id']);
-                // // dd($petugas);
-                // $petugas->update([]);
-                // $user = $petugas->user()->update($inputUser);
-                $user =  User::with('admin')->find($params['id']);
+                $user =  User::with('perawat')->find($params['id']);
                 // dd($petugas);
                 // dd($inputUser);
                 $user->update($inputUser);
-                $petugas = $user->admin()->update([]);
+                $petugas = $user->perawat()->update([]);
+
             }else{
-                $data = User::create($inputUser);
-                $admin = $data->admin()->create([]);
+                $user = User::create($inputUser);
+                $perawat = $user->perawat()->create([]);
             }
             DB::commit();
-            // return $data;
+        //     return $user;
         // } catch (\Throwable $th) {
         //     DB::rollback();
         //     return $th;
@@ -86,9 +85,11 @@ class AdminService
     //     return $data;
     // }
 
-    public static function deleteAdmin($id)
+
+
+    public static function deletePasien($id)
     {
-        $data = Admin::with('user')->find($id);
+        $data = Perawat::with('user')->find($id);
         $data->delete();
         if($data){
             return "Deleted";

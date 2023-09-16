@@ -15,7 +15,7 @@
          <li class="nav-heading">Pages</li>
 
            <li class="nav-item collapsed">
-             <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url('')}}">
+             <a class="nav-link collapsed {{checkRouteActive('pasien')}}" href="{{url('pasien')}}">
                  <i class="bi bi-person" ></i>
                  <span>Pasien</span>
              </a>

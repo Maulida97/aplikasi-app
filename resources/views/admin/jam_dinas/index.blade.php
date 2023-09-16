@@ -29,34 +29,38 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">User Name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Jam Dinas</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#">Tambah Admin</button>
-                    
+                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#tambahjamdinas">Tambah Jam Dinas</button>
                   </tr>
                 </thead>
                 <tbody>
+                  
+                  @foreach($data as $key => $val)    
                   <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{ $key + $data->firstItem() }}</th>
+                    <td>{{ $val->jam_dinas }}</td>
+                    {{-- <td>{{ $val->tetesan }}</td> --}}
                     <td>
-                      <a href="">Brandon Jacob</a>
-                    </td>
-                    <td>Designer</td>
-                    <td>Designer</td>
-                    <td>
-                      <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#">Edit</a>
+                          <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editjamdinas{{ $val->id }}">Edit</a>
 
-                      <a href="" class="btn btn-danger " data-id="">Delete</a>
-
+                          <a href="{{ route('jamDinas.delete', ['id' => $val->id]) }}"
+                            class="btn btn-danger hapus">Delete</a>
+  
                     </td>
+                    
                   </tr>
+                    
+
+                  @endforeach
                   
                 </tbody>
-              </table>
+                </table>
+               {{ $data->links() }}
+
               <!-- End Default Table Example -->
             </div>
+        @include('admin.jam_dinas.from')
           </div>
 
           

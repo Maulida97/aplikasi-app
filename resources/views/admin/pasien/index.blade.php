@@ -30,10 +30,15 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">User Name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Bangsal</th>
+                    <th scope="col">Kamar</th>
+                    <th scope="col">No Tempat Tidur</th>
+                    <th scope="col">Penyakit</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Jenis Infus</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#">Tambah Admin</button>
+                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" 
+                            data-bs-target="#">Tambah Pasien</button>
                     
                   </tr>
                 </thead>
@@ -41,6 +46,10 @@
                   <tr>
                     <th scope="row">1</th>
                     <td>Brandon Jacob</td>
+                    <td>Designer</td>
+                    <td>Designer</td>
+                    <td>Designer</td>
+                    <td>Designer</td>
                     <td>Designer</td>
                     <td>Designer</td>
                     <td>

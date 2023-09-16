@@ -12,13 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pasiens', function (Blueprint $table) {
+            // $table->id();
+            // $table->string('name');
+            // $table->integer('bangsal_id')->nullable();
+            // $table->integer('kamar_id')->nullable();
+            // $table->integer('no_tempet_tidur');
+            // $table->date('tanggal');
+            // $table->integer('penyakit_id')->nullable();
+            // $table->string('jenis_infus');
+            // $table->timestamps();
             $table->id();
             $table->string('name');
-            $table->integer('bangsal_id')->nullable();
-            $table->integer('kamar_id')->nullable();
+            $table->integer('bangsal')->nullable();
+            $table->integer('kamar')->nullable();
             $table->integer('no_tempet_tidur');
             $table->date('tanggal');
-            $table->integer('penyakit');
+            $table->integer('penyakit')->nullable();
             $table->string('jenis_infus');
             $table->timestamps();
         });

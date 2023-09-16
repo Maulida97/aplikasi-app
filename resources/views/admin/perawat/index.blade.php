@@ -34,7 +34,8 @@
                     <th scope="col">NIP</th>
                     <th scope="col">Email</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahperawat">Tambah Admin</button>
+                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" 
+                            data-bs-target="#modaltambahperawat">Tambah Perawat</button>
                     
                   </tr>
                 </thead>
@@ -49,9 +50,11 @@
                     <td>
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaleditperawat{{ $val->id }}">Edit</a>
 
-                          <a href="{{ route('perawat.delete', ['id' => $val->id]) }}"
-                            class="btn btn-danger hapus">Delete</a>
-  
+                          {{-- <a href="{{ route('perawat.delete', ['id' => $val->id]) }}"
+                            class="btn btn-danger hapus">Delete</a> --}}
+                            <a href=" "
+                            class="btn btn-danger hapusperawat" data-id="{{ $val->id }}">Delete</a>
+                            
                     </td>
                   </tr>
                   @endforeach
@@ -76,16 +79,13 @@
 
 @endsection
 
-@section('js')
-@endsection
 
-@section('script2')
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+@section('script')
 
-    {{-- <script src="dist/sweetalert2.all.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+    
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         @if (session()->has('success'))
             swal("Success!", "Data Berhasil dibuat", "success");
@@ -96,7 +96,7 @@
 		    @if (session()->has('success_hapus'))
             swal("Success!", "Data Berhasil dihapus", "success");
         @endif
-        $('.deleteadmin').click(function() {
+        $('.hapusperawat').click(function() {
             var id = $(this).attr('data-id');
             swal({
                     title: "Apakah Anda Yakin?",

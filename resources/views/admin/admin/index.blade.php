@@ -49,8 +49,10 @@
                     <td>
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaladminedit{{ $val->id }}">Edit</a>
 
-                          <a href="{{ route('admin.delete', ['id' => $val->id]) }}"
-                            class="btn btn-danger hapus">Delete</a>
+                          <a href=" "
+                            class="btn btn-danger hapus" data-id="{{ $val->id }}">Delete</a>
+                            {{-- <a href="{{ route('admin.delete', ['id' => $val->id]) }}"
+                            class="btn btn-danger hapus">Delete</a> --}}
   
                     </td>
                   </tr>
@@ -76,17 +78,10 @@
 
 @endsection
 
-@section('js')
-@endsection
-
-@section('script2')
-
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
-
-    {{-- <script src="dist/sweetalert2.all.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
-    {{-- <script>
+@section('script')
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
         @if (session()->has('success'))
             swal("Success!", "Data Berhasil dibuat", "success");
         @endif
@@ -96,7 +91,7 @@
 		    @if (session()->has('success_hapus'))
             swal("Success!", "Data Berhasil dihapus", "success");
         @endif
-        $('.deleteadmin').click(function() {
+        $('.hapus').click(function() {
             var id = $(this).attr('data-id');
             swal({
                     title: "Apakah Anda Yakin?",
@@ -115,5 +110,5 @@
 
     // swal("Hello world!");
         
-    </script> --}}
+    </script>
 @endsection

@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
+use App\Http\Controllers\PasienController;
 use App\Http\Controllers\BangsalController;
 use App\Http\Controllers\PerawatController;
+use App\Http\Controllers\JamdinasController;
 use App\Http\Controllers\PenyakitController;
 use App\Http\Controllers\DashboardController;
 
@@ -58,7 +60,9 @@ Route::get('/admin', [AdminController::class, 'list'])->name('admin')->middlewar
 Route::post('/admin/save', [AdminController::class, 'store'])->name('admin.save')->middleware('auth');
 Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete')->middleware('auth');
 
-Route::get('/pasien', [AdminController::class, 'index'])->name('pasien')->middleware('auth');
+Route::get('/pasien', [PasienController::class, 'index'])->name('pasien')->middleware('auth');
+Route::post('/pasien/save', [PasienController::class, 'store'])->name('pasien.save')->middleware('auth');
+Route::get('/pasien/delete/{id}', [PasienController::class, 'delete'])->name('pasien.delete')->middleware('auth');
 
 
 Route::get('/bangsal', [BangsalController::class, 'list'])->name('bangsal')->middleware('auth');
@@ -72,7 +76,10 @@ Route::get('/penyakit', [PenyakitController::class, 'list'])->name('penyakit')->
 Route::post('/penyakit/save', [PenyakitController::class, 'store'])->name('penyakit.save')->middleware('auth');
 Route::get('/penyakit/delete/{id}', [PenyakitController::class, 'delete'])->name('penyakit.delete')->middleware('auth');
 
-Route::get('/jamDinas', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
+
+Route::get('/jamDinas', [JamdinasController::class, 'list'])->name('jamDinas')->middleware('auth');
+Route::post('/jamDinas/save', [JamdinasController::class, 'store'])->name('jamDinas.save')->middleware('auth');
+Route::get('/jamDinas/delete/{id}', [JamdinasController::class, 'delete'])->name('jamDinas.delete')->middleware('auth');
 
 Route::get('/kamar', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
 
