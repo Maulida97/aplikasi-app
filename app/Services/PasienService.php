@@ -15,16 +15,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PasienService
 {
-    public static function PasientList(Request $request)
+    public static function PasienList(Request $request)
     {
         if($request->has('keywords')){
-             $data = Perawat::leftJoin('users', 'users.id', 'petugas.user_id')->select('users.*', 'petugas.*')
-            ->where(function ($row) use ($request){
-                    $row->where(function ($query) use ($request) {
-                        $query->where('users.name', 'like', '%' . $request->keywords . '%')
-                            ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
-                    });
-            })->paginate(5);
+            //  $data = Perawat::leftJoin('users', 'users.id', 'petugas.user_id')->select('users.*', 'petugas.*')
+            // ->where(function ($row) use ($request){
+            //         $row->where(function ($query) use ($request) {
+            //             $query->where('users.name', 'like', '%' . $request->keywords . '%')
+            //                 ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
+            //         });
+            // })->paginate(5);
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
@@ -44,57 +44,45 @@ class PasienService
         // $username = $params['name'].rand(pow(10, 8 - 1), pow(10, 8) -1);
         DB::beginTransaction();
         // try {
-            $inputUser['username'] = $params['username'];
-            $inputUser['user_type'] = 'petugas';
-            $inputUser['name'] = $params['name'];
-            $inputUser['email'] = $params['email'];
-            $inputUser['nip'] = $params['nip'];
-            $inputUser['gender'] = $params['gender'];
-            $inputUser['password'] = Hash::make($params['password']);
-            // if(isset($params['image_url'])){
-            //     $inputUser['image_url'] = $params['image_url'];
-            // }   
+
+            $inputpasien['name'] = $params['name'];
+            $inputpasien['bangsal'] = $params['bangsal'];
+            $inputpasien['kamar'] = $params['kamar'];
+            $inputpasien['no_tempat_tidur'] = $params['no_tempat_tidur'];
+            $inputpasien['tanggal'] = $params['tanggal'];
+            $inputpasien['penyakit'] = $params['penyakit'];
+            $inputpasien['jenis_infus'] = $params['jenis_infus'];
+
             if (isset($params['id'])) {
-                // dd($params['id']);
-                // dd($params);
-                $user =  User::with('perawat')->find($params['id']);
-                // dd($petugas);
-                // dd($inputUser);
-                $user->update($inputUser);
-                $petugas = $user->perawat()->update([]);
+                //  dd($inputpasien);
+
+                $pasien = Pasien::find($params['id']);
+                $pasien->update($inputpasien);
 
             }else{
-                $user = User::create($inputUser);
-                $perawat = $user->perawat()->create([]);
+
+                $pasien = Pasien::create($inputpasien);
+                //  dd($inputpasien);
+
             }
-            DB::commit();
-        //     return $user;
+        //     DB::commit();
+        //     return $inputpasien;
         // } catch (\Throwable $th) {
+
         //     DB::rollback();
         //     return $th;
+
         // }
     }
-    // public static function AdminDetail($id)
-    // {
-    //     $data = Admin::with('user')->find($id);
-    //     return $data;
-    // }
-    // public static function AdminEdit($id)
-    // {
-    //     $data = Admin::with('user')->find($id);
-    //     return $data;
-    // }
-
-
 
     public static function deletePasien($id)
     {
-        $data = Perawat::with('user')->find($id);
-        $data->delete();
+        $data = Pasien::destroy($id);
         if($data){
             return "Deleted";
         }else{
             return "Failed";
         }
     }
+   
 }

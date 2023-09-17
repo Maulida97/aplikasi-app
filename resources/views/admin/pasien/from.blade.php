@@ -1,6 +1,6 @@
               <div class="card-body">
                 <!-- Vertically centered Modal -->
-                <div class="modal fade" id="modaltambahadmin" tabindex="-1">
+                <div class="modal fade" id="modaltambahpasien" tabindex="-1">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -8,40 +8,37 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form action="{{ route('admin.save') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('pasien.save') }}" method="post" enctype="multipart/form-data">
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
                             <input type="text" name="name" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Bangsal</label>
+                            <input type="text" name="bangsal" value="Rawat Inap" class="form-control" id="inputNanme4" required>
                           </div>
                            <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Kamar</label>
+                            <input type="text" name="kamar" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">No Tempat Tidur</label>
+                            <input type="text" name="no_tempat_tidur" class="form-control" id="inputNanme4" required>
+                          </div>
+                          <div class="col-12 mt-3">
+                            <label for="inputNanme4" class="form-label">Tanggal</label>
+                            <input type="date" name="tanggal" class="form-control" id="inputNanme4" required>
                           </div>
                            <div class="col-12 mt-3">
-                              <label for="inputState" class="form-label">Jenis Kelamin</label>
-                              <select name="gender" id="gender" class="form-select">
-                                <option selected>Pilih Gender</option>
-                                <option value="pria">Pria</option>
-                                <option value="wanita">Wanita</option>
-                              </select>
-                            </div>
-                          <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Penyakit</label>
+                            <input type="text" name="penyakit" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Jenis Infus</label>
+                            <input type="text" name="jenis_infus" value="Ringer Laktat" class="form-control" id="inputNanme4" required>
                           </div>
+                           
                           <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -62,12 +59,11 @@
 
 
 
-
+{{-- 
 
      @foreach ($data as $key => $val)         
               <div class="card-body">
-                <!-- Vertically centered Modal -->
-                <div class="modal fade" id="modaladminedit{{ $val->id }}" tabindex="-1">
+                <div class="modal fade" id="modalpasienedit{{ $val->id }}" tabindex="-1">
                   <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -75,7 +71,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form action="{{ route('admin.save') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('pasien.save') }}" method="post" enctype="multipart/form-data">
                           <input type="hidden" name="id" value="{{ $val->user->id }}">
                             @csrf
                           <div class="col-12 mt-3">
@@ -113,18 +109,17 @@
                           <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                           </div>
-                        </form><!-- Vertical Form -->
+                        </form>
                         
                       </div>  
                       
                     </div>
                   </div>
-                </div><!-- End Vertically centered Modal-->
+                </div>
 
               </div>
-      @endforeach       
+      @endforeach        --}}
 
 @section('script')
         {{-- <script>

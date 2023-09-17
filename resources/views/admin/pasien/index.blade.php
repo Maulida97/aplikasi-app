@@ -22,7 +22,7 @@
 
           <div class="card table-responsive">
             <div class="card-body">
-              <h5 class="card-title">Table Pasien</h5>
+              <h5 class="card-title">Pasien Rawat Inap</h5>
 
               <!-- Default Table -->
               <table class="table table-striped">
@@ -38,20 +38,21 @@
                     <th scope="col">Jenis Infus</th>
                     <th scope="col">Aksi</th>
                     <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" 
-                            data-bs-target="#">Tambah Pasien</button>
+                            data-bs-target="#modaltambahpasien">Tambah Pasien</button>
                     
                   </tr>
                 </thead>
                 <tbody>
+                   @foreach($data as $key => $val)
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>Designer</td>
-                    <td>Designer</td>
-                    <td>Designer</td>
-                    <td>Designer</td>
-                    <td>Designer</td>
+                    <th scope="row">{{ $key + $data->firstItem() }}</th>
+                    <td>{{ $val->name }}</td>
+                    <td>{{ $val->bangsal }}</td>
+                    <td>{{ $val->kamar }}</td>
+                    <td>{{ $val->no_tempat_tidur }}</td>
+                    <td>{{ $val->penyakit }}</td>
+                    <td>{{ $val->tanggal }}</td>
+                    <td>{{ $val->jenis_infus }}</td>
                     <td>
                       <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#">Edit</a>
 
@@ -59,11 +60,15 @@
 
                     </td>
                   </tr>
-                  
+                  @endforeach
                 </tbody>
               </table>
+               {{ $data->links() }}
+
               <!-- End Default Table Example -->
             </div>
+        @include('admin.pasien.from')
+
           </div>
 
           

@@ -60,7 +60,7 @@ Route::get('/admin', [AdminController::class, 'list'])->name('admin')->middlewar
 Route::post('/admin/save', [AdminController::class, 'store'])->name('admin.save')->middleware('auth');
 Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete')->middleware('auth');
 
-Route::get('/pasien', [PasienController::class, 'index'])->name('pasien')->middleware('auth');
+Route::get('/pasien', [PasienController::class, 'list'])->name('pasien')->middleware('auth');
 Route::post('/pasien/save', [PasienController::class, 'store'])->name('pasien.save')->middleware('auth');
 Route::get('/pasien/delete/{id}', [PasienController::class, 'delete'])->name('pasien.delete')->middleware('auth');
 
