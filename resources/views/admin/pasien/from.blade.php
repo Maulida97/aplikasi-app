@@ -59,7 +59,7 @@
 
 
 
-{{-- 
+
 
      @foreach ($data as $key => $val)         
               <div class="card-body">
@@ -72,39 +72,35 @@
                       </div>
                       <div class="modal-body">
                         <form action="{{ route('pasien.save') }}" method="post" enctype="multipart/form-data">
-                          <input type="hidden" name="id" value="{{ $val->user->id }}">
+                          <input type="hidden" name="id" value="{{ $val->id }}">
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" value="{{ $val->user->name }}" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="name" value="{{ $val->name }}" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username" value="{{ $val->user->username }}" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Bangsal</label>
+                            <input type="text" name="bangsal" value="{{ $val->bangsal }}" class="form-control" id="inputNanme4" required>
                           </div>
                            <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip" value="{{ $val->user->nip }}" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Kamar</label>
+                            <input type="text" name="kamar" value="{{ $val->kamar }}" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email" value="{{ $val->user->email }}" class="form-control" id="inputNanme4" required>
-                          </div>
-                           <div class="col-12 mt-3">
-                              <label for="inputState" class="form-label">Jenis Kelamin</label>
-                              <select name="gender" id="gender" class="form-select">
-                                <option selected>Pilih Gender</option>
-                                <option value="pria">Pria</option>
-                                <option value="wanita">Wanita</option>
-                              </select>
-                            </div>
-                          <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Password</label>
-                            <input type="password" name="password"  class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">No Tempat Tidur</label>
+                            <input type="text" name="no_tempat_tidur" value="{{ $val->no_tempat_tidur }}" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" required>
+                            <label for="inputNanme4" class="form-label">Tanggal</label>
+                            <input type="date" name="tanggal" value="{{ $val->tanggal }}" class="form-control" id="inputNanme4" required>
+                          </div>
+                          <div class="col-12 mt-3">
+                            <label for="inputNanme4" class="form-label">Penyakit</label>
+                            <input type="text" name="penyakit" value="{{ $val->penyakit }}" class="form-control" id="inputNanme4" required>
+                          </div>
+                          <div class="col-12 mt-3">
+                            <label for="inputNanme4" class="form-label">Jenis Infus</label>
+                            <input type="text" name="jenis_infus" value="{{ $val->jenis_infus }} value="Ringer Laktat" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -119,7 +115,7 @@
                 </div>
 
               </div>
-      @endforeach        --}}
+      @endforeach
 
 @section('script')
         {{-- <script>

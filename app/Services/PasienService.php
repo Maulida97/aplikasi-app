@@ -60,12 +60,12 @@ class PasienService
                 $pasien->update($inputpasien);
 
             }else{
-
+// dd('c');
                 $pasien = Pasien::create($inputpasien);
                 //  dd($inputpasien);
 
             }
-        //     DB::commit();
+            DB::commit();
         //     return $inputpasien;
         // } catch (\Throwable $th) {
 

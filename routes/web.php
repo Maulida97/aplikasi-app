@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlatController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
@@ -81,7 +82,10 @@ Route::get('/jamDinas', [JamdinasController::class, 'list'])->name('jamDinas')->
 Route::post('/jamDinas/save', [JamdinasController::class, 'store'])->name('jamDinas.save')->middleware('auth');
 Route::get('/jamDinas/delete/{id}', [JamdinasController::class, 'delete'])->name('jamDinas.delete')->middleware('auth');
 
-Route::get('/kamar', [PenyakitController::class, 'list'])->name('penyakit')->middleware('auth');
+Route::get('/alat', [AlatController::class, 'list'])->name('alat')->middleware('auth');
+Route::post('/alat/save', [AlatController::class, 'store'])->name('alat.save')->middleware('auth');
+Route::get('/alat/delete/{id}', [AlatController::class, 'delete'])->name('alat.delete')->middleware('auth');
+
 
 
 

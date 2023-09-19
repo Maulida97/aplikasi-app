@@ -8,24 +8,53 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form action="{{ route('admin.save') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.save') }}" method="post" autocomplete="off" enctype="multipart/form-data">
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="name" class="form-control" id="inputNanme4" 
+                                    autocomplete="off" @error('name') is-invalid @enderror required>
                           </div>
+                          @error('name')
+                              <div class="invalid-feddback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="username" class="form-control" id="inputNanme4" 
+                                    autocomplete="off" @error('username') is-invalid @enderror required>
                           </div>
+                           @error('username')
+                              <div class="invalid-feddback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip" class="form-control" id="inputNanme4" required>
+                            <input type="number" name="nip" class="form-control" id="inputNanme4" 
+                                    autocomplete="off" @error('nip') is-invalid @enderror required>
                           </div>
+                          @error('nip')
+                              <div class="invalid-feddback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputNanme4" required>
+                            <input type="email" name="email" class="form-control" id="inputNanme4" 
+                                    autocomplete="off" @error('email') is-invalid @enderror required>
                           </div>
+                          @error('email')
+                              <div class="invalid-feddback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
                               <select name="gender" id="gender" class="form-select">
@@ -34,14 +63,30 @@
                                 <option value="wanita">Wanita</option>
                               </select>
                             </div>
+
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="inputNanme4" required>
+                            <input type="password" name="password" class="form-control" id="inputNanme4" 
+                                    autocomplete="off" @error('password') is-invalid @enderror required>
                           </div>
+                           @error('password')
+                              <div class="invalid-feddback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" required>
+                            <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" 
+                                    autocomplete="off" @error('password_confirmation') is-invalid @enderror required>
                           </div>
+                           @error('password_confirmation')
+                              <div class="invalid-feddback">
+                                  {{ $message }}
+                              </div>
+                          @enderror
+
                           <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -76,40 +121,83 @@
                       </div>
                       <div class="modal-body">
                         <form action="{{ route('admin.save') }}" method="post" enctype="multipart/form-data">
-                          <input type="hidden" name="id" value="{{ $val->user->id }}">
                             @csrf
+                          <input type="hidden" name="id" value="{{ $val->user->id }}">
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" value="{{ $val->user->name }}" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="name"  class="form-control" id="inputNanme4" 
+                                    @error('name') is-invalid @enderror value="{{ $val->user->name }}" required>
                           </div>
+                           @error('name')
+                            <div class="invalid-feddback">
+                                {{ $message }}
+                            </div>
+                             @enderror
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username" value="{{ $val->user->username }}" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="username"  class="form-control" id="inputNanme4" 
+                                  @error('username') is-invalid @enderror value="{{ $val->user->username }}" required>
                           </div>
+                          @error('username')
+                            <div class="invalid-feddback">
+                                {{ $message }}
+                            </div>
+                             @enderror
+
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip" value="{{ $val->user->nip }}" class="form-control" id="inputNanme4" required>
+                            <input type="number" name="nip"  class="form-control" id="inputNanme4" 
+                                   @error('nip') is-invalid @enderror value="{{ $val->user->nip }}" required>
                           </div>
+                          @error('nip')
+                            <div class="invalid-feddback">
+                                {{ $message }}
+                            </div>
+                             @enderror
+
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email" value="{{ $val->user->email }}" class="form-control" id="inputNanme4" required>
+                            <input type="email" name="email"  class="form-control" id="inputNanme4" 
+                                  @error('email') is-invalid @enderror value="{{ $val->user->email }}" required>
                           </div>
+                           @error('email')
+                            <div class="invalid-feddback">
+                                {{ $message }}
+                            </div>
+                             @enderror
+
+                          
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
                               <select name="gender" id="gender" class="form-select">
-                                <option selected>Pilih Gender</option>
+                                <option selected>{{ $val->user->gender }}</option>
                                 <option value="pria">Pria</option>
                                 <option value="wanita">Wanita</option>
                               </select>
                             </div>
+                            
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password</label>
                             <input type="password" name="password"  class="form-control" id="inputNanme4" required>
                           </div>
+                          @error('password')
+                            <div class="invalid-feddback">
+                                {{ $message }}
+                            </div>
+                             @enderror
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password Confirmation</label>
                             <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" required>
                           </div>
+                          @error('password_confirmation')
+                            <div class="invalid-feddback">
+                                {{ $message }}
+                            </div>
+                             @enderror
                           <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

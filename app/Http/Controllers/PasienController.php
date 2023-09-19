@@ -31,8 +31,34 @@ class PasienController extends Controller
     public function store(Request $request)
     {
         $params = $request->all();
-
-        
+        // dd($params);
+         if(!isset($request['id'])){
+            $validated = $request->validate([
+                'name' => 'required|min:3|max:255',
+                'bangsal' => '',
+                'kamar' => 'required',
+                'no_tempat_tidur' => 'required',
+                'tanggal' => 'required',
+                'penyakit' => 'required',
+                'jenis_infus' => 'required',
+            ]);
+            $params = $validated;
+            // dd($params);
+        }else{
+            // $params = $request->all();
+              $validated = $request->validate([
+                'id'=>'required',
+                'name' => 'required|min:3|max:255',
+                'bangsal' => '',
+                'kamar' => 'required',
+                'no_tempat_tidur' => 'required',
+                'tanggal' => 'required',
+                'penyakit' => 'required',
+                'jenis_infus' => 'required',
+            ]);
+            $params = $validated;
+        }        
+        // dd($params);
         $data = PasienService::add($params);
                 //  dd($params);
 

@@ -30,7 +30,7 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Bangsal</th>
+                    {{-- <th scope="col">Bangsal</th> --}}
                     <th scope="col">Kamar</th>
                     <th scope="col">No Tempat Tidur</th>
                     <th scope="col">Penyakit</th>
@@ -47,16 +47,19 @@
                   <tr>
                     <th scope="row">{{ $key + $data->firstItem() }}</th>
                     <td>{{ $val->name }}</td>
-                    <td>{{ $val->bangsal }}</td>
+                    {{-- <td>{{ $val->bangsal }}</td> --}}
                     <td>{{ $val->kamar }}</td>
                     <td>{{ $val->no_tempat_tidur }}</td>
                     <td>{{ $val->penyakit }}</td>
                     <td>{{ $val->tanggal }}</td>
                     <td>{{ $val->jenis_infus }}</td>
                     <td>
-                      <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#">Edit</a>
+                      <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailpasien{{ $val->id }}">Detail</a>
 
-                      <a href="" class="btn btn-danger " data-id="">Delete</a>
+                      <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalpasienedit{{ $val->id }}">Edit</a>
+
+                      <a href="{{ route('pasien.delete', ['id' => $val->id]) }}"
+                            class="btn btn-danger hapus">Delete</a>
 
                     </td>
                   </tr>
