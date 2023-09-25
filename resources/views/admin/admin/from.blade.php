@@ -8,7 +8,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form action="{{ route('admin.save') }}" method="post" autocomplete="off" enctype="multipart/form-data">
+                        <form action="{{ route('admin.save') }}" method="post" autocomplete="off" enctype="multipart/form-data"
+                           >
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
@@ -16,7 +17,7 @@
                                     autocomplete="off" @error('name') is-invalid @enderror required>
                           </div>
                           @error('name')
-                              <div class="invalid-feddback">
+                              <div class="valid-tooltip">
                                   {{ $message }}
                               </div>
                           @enderror
@@ -35,7 +36,7 @@
 
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip" class="form-control" id="inputNanme4" 
+                            <input type="number"  name="nip" class="form-control" id="inputNanme4" 
                                     autocomplete="off" @error('nip') is-invalid @enderror required>
                           </div>
                           @error('nip')
@@ -57,7 +58,7 @@
 
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
-                              <select name="gender" id="gender" class="form-select">
+                              <select name="gender" id="gender" class="form-select" required >
                                 <option selected>Pilih Gender</option>
                                 <option value="pria">Pria</option>
                                 <option value="wanita">Wanita</option>

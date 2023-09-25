@@ -38,22 +38,19 @@ class PerawatController extends Controller
                 'email' => 'required|email:dns|unique:users',
                 'nip' => 'required|min:18|max:18|unique:users',
                 'gender' => 'required',
-                // 'image_url' => '',
                 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
                 'password_confirmation' => 'min:6'
             ]);
             $params = $validated;
             // dd($params);
         }else{
-            // $params = $request->all();
               $validated = $request->validate([
                 'id'=>'required',
                 'name' => 'required|min:3|max:255',
                 'username' => 'required|min:3|max:255',
-                'email' => 'required|email:dns|unique:users',
-                'nip' => 'required|min:18|max:18|unique:users',
+                'email' => 'required',
+                'nip' => 'required',
                 'gender' => 'required',
-                // 'image_url' => '',
                 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
                 'password_confirmation' => 'min:6'
             ]);

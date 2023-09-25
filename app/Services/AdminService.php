@@ -41,7 +41,7 @@ class AdminService
         // dd($params);
         // $username = $params['name'].rand(pow(10, 8 - 1), pow(10, 8) -1);
         DB::beginTransaction();
-        try {
+        // try {
             $inputUser['username'] = $params['username'];
             $inputUser['user_type'] = 'admin';
             $inputUser['name'] = $params['name'];
@@ -53,7 +53,7 @@ class AdminService
             //     $inputUser['image_url'] = $params['image_url'];
             // }   
             if (isset($params['id'])) {
-                dd($params['id']);
+                // dd($params['id']);
                 // dd($params);
                 // $petugas =  Admin::find($params['id']);
                 // dd($inputUser);
@@ -69,11 +69,11 @@ class AdminService
                 $admin = $data->admin()->create([]);
             }
             DB::commit();
-            return $data;
-        } catch (\Throwable $th) {
-            DB::rollback();
-            return $th;
-        }
+        //     return $data;
+        // } catch (\Throwable $th) {
+        //     DB::rollback();
+        //     return $th;
+        // }
     }
     // public static function AdminDetail($id)
     // {

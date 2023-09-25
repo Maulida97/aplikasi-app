@@ -48,6 +48,7 @@
                     <td>{{ $val->user->nip }}</td>
                     <td>{{ $val->user->email }}</td>
                     <td>
+
                           <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailperawat{{ $val->id }}">Detail</a>
 
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaleditperawat{{ $val->id }}">Edit</a>
@@ -67,6 +68,8 @@
               <!-- End Default Table Example -->
             </div>
         @include('admin.perawat.from')
+        @include('admin.perawat.detail')
+
 
           </div>
 
