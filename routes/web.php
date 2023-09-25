@@ -28,7 +28,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
 
-    SensorEvent::dispatch();
+    // SensorEvent::dispatch();
     return view('welcome');
 });
 

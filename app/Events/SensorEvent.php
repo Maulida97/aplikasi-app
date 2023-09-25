@@ -13,26 +13,32 @@ use Illuminate\Queue\SerializesModels;
 class SensorEvent implements shouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+    public $laju;
+    public $berat;
 
     /**
      * Create a new event instance.
+     *
+     * @return void
      */
-    public function __construct()
+    public function __construct($laju,$berat)
     {
-        //
+        $this->laju = $laju;
+        $this->berat = $berat;
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return \Illuminate\Broadcasting\Channel|array
      */
     public function broadcastOn()
     {
-        
-            return new Channel(name : 'messages');
-
-            // new PrivateChannel('channel-name'),
-        
+        // return new PrivateChannel('channel-name');
+        return new Channel(name : 'monitoringInfus');
+    }
+    public function broadcastAs()
+    {
+        return 'new-request';
     }
 }
