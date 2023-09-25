@@ -1,11 +1,13 @@
 <?php
 
+use App\Events\SensorEvent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\SensorController;
 use App\Http\Controllers\BangsalController;
 use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\JamdinasController;
@@ -25,6 +27,8 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
+
+    SensorEvent::dispatch();
     return view('welcome');
 });
 
@@ -87,11 +91,8 @@ Route::post('/alat/save', [AlatController::class, 'store'])->name('alat.save')->
 Route::get('/alat/delete/{id}', [AlatController::class, 'delete'])->name('alat.delete')->middleware('auth');
 
 
-
-
-// Route::get('admin/subjects', [SubjectController::class, 'list'])->name('subjects');
-// Route::post('/save', [SubjectController::class, 'store'])->name('subject.save');
-// Route::get('/delete/{id}', [SubjectController::class, 'delete'])->name('subject.delete');
+//Route di node MCU
+Route::get('/simpan/{nilaiTetesan}/{nilaiBerat}', [SensorController::class, 'simpan']);
 
 
 
