@@ -100,7 +100,7 @@
                           </div>
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Jenis Infus</label>
-                            <input type="text" name="jenis_infus" value="{{ $val->jenis_infus }} value="Ringer Laktat" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="jenis_infus" value="{{ $val->jenis_infus }}" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>

@@ -58,8 +58,10 @@
 
                       <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalpasienedit{{ $val->id }}">Edit</a>
 
-                      <a href="{{ route('pasien.delete', ['id' => $val->id]) }}"
-                            class="btn btn-danger hapus">Delete</a>
+                      <a href="#" class="btn btn-danger deletePasien" data-id="{{ $val->id }}">Delete</a>
+
+                      {{-- <a href="{{ route('pasien.delete', ['id' => $val->id]) }}"
+                            class="btn btn-danger hapus">Delete</a> --}}
 
                     </td>
                   </tr>
@@ -85,5 +87,35 @@
 
 @endsection
 
-@section('js')
+@section('scriptJs')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <script>
+        @if (session()->has('success'))
+            swal("Success!", "Data Berhasil dibuat", "success");
+        @endif
+        @if (session()->has('successEdit'))
+            swal("Success!", "Data Berhasil diedit", "success");
+        @endif
+	    	@if (session()->has('success_hapus'))
+            swal("Success!", "Data Berhasil dihapus", "success");
+        @endif
+        $('.deletePasien').click(function() {
+            var id = $(this).attr('data-id');
+            swal({
+                    title: "Apakah Anda Yakin?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "pasien/delete/" + id;
+                    } else {
+                        swal("Batal menghapus akun!");
+                    }
+                });
+        });
+    </script>
+
 @endsection

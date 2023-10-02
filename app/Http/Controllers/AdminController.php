@@ -47,40 +47,40 @@ class AdminController extends Controller
         $params = $request->all();
             // dd($params);
 
-        if(!isset($request['id'])){
-            $validated = $request->validate([
-                'name' => 'required|min:3|max:255',
-                'username' => 'required|min:3|max:255',
-                'email' => 'required|email:dns|unique:users',
-                'nip' => 'required|min:18|max:18|unique:users',
-                'gender' => 'required',
-                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-                'password_confirmation' => 'min:6'
-            ]);
-            $params = $validated;
-            // dd($params);
+        // if(!isset($request['id'])){
+        //     $validated = $request->validate([
+        //         'name' => 'required|min:3|max:255',
+        //         'username' => 'required|min:3|max:255',
+        //         'email' => 'required|email:dns|unique:users',
+        //         'nip' => 'required|min:18|max:18|unique:users',
+        //         'gender' => 'required',
+        //         'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+        //         'password_confirmation' => 'min:6'
+        //     ]);
+        //     $params = $validated;
+        //     // dd($params);
 
-        }else{
-            // $params = $request->all();
-            // dd($params);
+        // }else{
+        //     // $params = $request->all();
+        //     // dd($params);
 
-              $validated = $request->validate([
-                'id'=>'required',
-                'name' => 'required|min:3|max:255',
-                'username' => 'required|min:3|max:255',
-                'email' => 'required',
-                'nip' => 'required',
-                'gender' => 'required',
-                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-                'password_confirmation' => 'min:6'
-            ]);
-            $params = $validated;
-            // dd($params);
+        //       $validated = $request->validate([
+        //         'id'=>'required',
+        //         'name' => 'required|min:3|max:255',
+        //         'username' => 'required|min:3|max:255',
+        //         'email' => 'required',
+        //         'nip' => 'required',
+        //         'gender' => 'required',
+        //         'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+        //         'password_confirmation' => 'min:6'
+        //     ]);
+        //     $params = $validated;
+        //     // dd($params);
 
 
-        }        
+        // }        
         
-        // $params = $request->all();
+        $params = $request->all();
         $data = AdminService::add($params);
         if(!isset($request['id'])){
             return redirect('admin')->with('success', 'Berhasil menambahkan data');

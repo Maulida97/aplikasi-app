@@ -55,8 +55,8 @@
 
                           {{-- <a href="{{ route('perawat.delete', ['id' => $val->id]) }}"
                             class="btn btn-danger hapus">Delete</a> --}}
-                            <a href=" "
-                            class="btn btn-danger hapusperawat" data-id="{{ $val->id }}">Delete</a>
+                            <a href="#"
+                            class="btn btn-danger deleteperawat" data-id="{{ $val->id }}">Delete</a>
                             
                     </td>
                   </tr>
@@ -84,24 +84,20 @@
 
 @endsection
 
-
-
 @section('script')
-
-    
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        @if (session()->has('success'))
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <script>
+       @if (session()->has('success'))
             swal("Success!", "Data Berhasil dibuat", "success");
         @endif
         @if (session()->has('successEdit'))
             swal("Success!", "Data Berhasil diedit", "success");
         @endif
-		    @if (session()->has('success_hapus'))
+	    	@if (session()->has('success_hapus'))
             swal("Success!", "Data Berhasil dihapus", "success");
         @endif
-        $('.hapusperawat').click(function() {
+        $('.deleteperawat').click(function() {
             var id = $(this).attr('data-id');
             swal({
                     title: "Apakah Anda Yakin?",
@@ -111,14 +107,13 @@
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location = "admin/delete/" + id;
+                        window.location = "perawat/delete/" + id;
                     } else {
                         swal("Batal menghapus akun!");
                     }
                 });
         });
-
-    // swal("Hello world!");
-        
     </script>
+
 @endsection
+

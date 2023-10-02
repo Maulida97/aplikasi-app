@@ -86,7 +86,7 @@ class PerawatService
 
 
 
-    public static function deletePasien($id)
+    public static function deletePerawat($id)
     {
         $data = Perawat::with('user')->find($id);
         $data->delete();

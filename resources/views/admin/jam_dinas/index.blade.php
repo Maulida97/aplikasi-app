@@ -74,5 +74,3 @@
 
 @endsection
 
-@section('js')
-@endsection

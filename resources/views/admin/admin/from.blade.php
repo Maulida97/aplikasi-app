@@ -13,7 +13,7 @@
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" class="form-control" id="inputNanme4" 
+                            <input type="text" name="name" class="form-control"  
                                     autocomplete="off" @error('name') is-invalid @enderror required>
                           </div>
                           @error('name')
@@ -25,7 +25,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username" class="form-control" id="inputNanme4" 
+                            <input type="text" name="username" class="form-control"  
                                     autocomplete="off" @error('username') is-invalid @enderror required>
                           </div>
                            @error('username')
@@ -36,7 +36,7 @@
 
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number"  name="nip" class="form-control" id="inputNanme4" 
+                            <input type="number"  name="nip" class="form-control"  
                                     autocomplete="off" @error('nip') is-invalid @enderror required>
                           </div>
                           @error('nip')
@@ -47,7 +47,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputNanme4" 
+                            <input type="email" name="email" class="form-control"  
                                     autocomplete="off" @error('email') is-invalid @enderror required>
                           </div>
                           @error('email')
@@ -58,7 +58,7 @@
 
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
-                              <select name="gender" id="gender" class="form-select" required >
+                              <select name="gender"  class="form-select" required >
                                 <option selected>Pilih Gender</option>
                                 <option value="pria">Pria</option>
                                 <option value="wanita">Wanita</option>
@@ -68,7 +68,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="inputNanme4" 
+                            <input type="password" name="password" class="form-control"  
                                     autocomplete="off" @error('password') is-invalid @enderror required>
                           </div>
                            @error('password')
@@ -79,7 +79,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" 
+                            <input type="password" name="password_confirmation" class="form-control"  
                                     autocomplete="off" @error('password_confirmation') is-invalid @enderror required>
                           </div>
                            @error('password_confirmation')
@@ -127,7 +127,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name"  class="form-control" id="inputNanme4" 
+                            <input type="text" name="name"  class="form-control"  
                                     @error('name') is-invalid @enderror value="{{ $val->user->name }}" required>
                           </div>
                            @error('name')
@@ -138,7 +138,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username"  class="form-control" id="inputNanme4" 
+                            <input type="text" name="username"  class="form-control"  
                                   @error('username') is-invalid @enderror value="{{ $val->user->username }}" required>
                           </div>
                           @error('username')
@@ -149,7 +149,7 @@
 
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip"  class="form-control" id="inputNanme4" 
+                            <input type="number" name="nip"  class="form-control"  
                                    @error('nip') is-invalid @enderror value="{{ $val->user->nip }}" required>
                           </div>
                           @error('nip')
@@ -161,7 +161,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email"  class="form-control" id="inputNanme4" 
+                            <input type="email" name="email"  class="form-control"  
                                   @error('email') is-invalid @enderror value="{{ $val->user->email }}" required>
                           </div>
                            @error('email')
@@ -173,7 +173,7 @@
                           
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
-                              <select name="gender" id="gender" class="form-select">
+                              <select name="gender"  class="form-select">
                                 <option selected>{{ $val->user->gender }}</option>
                                 <option value="pria">Pria</option>
                                 <option value="wanita">Wanita</option>
@@ -182,7 +182,7 @@
                             
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password</label>
-                            <input type="password" name="password"  class="form-control" id="inputNanme4" required>
+                            <input type="password" name="password"  class="form-control"  required>
                           </div>
                           @error('password')
                             <div class="invalid-feddback">
@@ -192,7 +192,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control" id="inputNanme4" required>
+                            <input type="password" name="password_confirmation" class="form-control"  required>
                           </div>
                           @error('password_confirmation')
                             <div class="invalid-feddback">

@@ -744,14 +744,14 @@
 
   
 
-
-
+  
+@yield('scriptJs')
 @yield('script')
+
 
 
    
 </body>
   
-
 
 </html>
