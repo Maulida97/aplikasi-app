@@ -95,6 +95,16 @@ Route::get('/alat/delete/{id}', [AlatController::class, 'delete'])->name('alat.d
 Route::get('/simpan/{nilaiTetesan}/{nilaiBerat}', [SensorController::class, 'simpan']);
 
 
+//ajax realtime
+Route::get('/bacavolume', [SensorController::class, 'bacavolume']);
+Route::get('/bacatetesan', [SensorController::class, 'bacatetesan']);
+
+
+
+
+Route::get('/simpan/{nilaivolume}/{nilaitetesan}', [SensorController::class, 'simpan']);
+
+
 
 
 

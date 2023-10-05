@@ -12,9 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SensorService
 {
-    public static function getDataSensor()
+    public static function getDataSensor($id)
     {
-        $data = Sensor::find(1);
+        $data = Sensor::find($id);
         return $data;
 
     }

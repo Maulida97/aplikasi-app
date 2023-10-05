@@ -32,13 +32,13 @@ class SensorEvent implements shouldBroadcast
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-    public function broadcastOn()
-    {
-        // return new PrivateChannel('channel-name');
-        return new Channel(name : 'monitoringInfus');
-    }
-    public function broadcastAs()
-    {
-        return 'new-request';
-    }
+    // public function broadcastOn()
+    // {
+    //     // return new PrivateChannel('channel-name');
+    //     return new Channel(name : 'monitoringInfus');
+    // }
+    // public function broadcastAs()
+    // {
+    //     return 'new-request';
+    // }
 }

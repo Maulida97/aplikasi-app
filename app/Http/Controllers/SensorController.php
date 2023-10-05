@@ -28,8 +28,25 @@ class SensorController extends Controller
         "updated_at" => $tgl,
     ]);
 
-    return event(new SensorEvent($nilaiBerat, $nilaiTetesan));
+    // return event(new SensorEvent($nilaiBerat, $nilaiTetesan));
 
 
     }
+
+    public function bacavolume(){
+        $sensor = Sensor::select('*')->get();
+        return view('admin.dashboard.bacavolume', ['nilaisensor'=> $sensor]);
+    }
+    public function bacatetesan(){
+        $sensor = Sensor::select('*')->get();
+        return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
+    }
+
+    // public function simpan($nilaivolume, $nilaitetesan){
+    //     Sensor::where('id', '1')->update([
+    //         'berat_infus' => request()->nilaivolum,
+    //         'laju_tetesan' => request()->nilaitetesan
+    // ]);
+    // }
+
 }
