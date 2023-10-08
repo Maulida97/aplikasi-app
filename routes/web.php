@@ -92,17 +92,17 @@ Route::get('/alat/delete/{id}', [AlatController::class, 'delete'])->name('alat.d
 
 
 //Route di node MCU
-Route::get('/simpan/{nilaiTetesan}/{nilaiBerat}', [SensorController::class, 'simpan']);
+Route::get('/simpan/{nilaiBerat}/{nilaiTetesan}', [SensorController::class, 'simpan']);
 
 
 //ajax realtime
 Route::get('/bacavolume', [SensorController::class, 'bacavolume']);
-Route::get('/bacatetesan', [SensorController::class, 'bacatetesan']);
+Route::get('/bacainfus', [SensorController::class, 'bacainfus']);
 
 
 
 
-Route::get('/simpan/{nilaivolume}/{nilaitetesan}', [SensorController::class, 'simpan']);
+// Route::get('/simpan/{nilaivolume}/{nilaitetesan}', [SensorController::class, 'simpan']);
 
 
 

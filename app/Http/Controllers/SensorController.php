@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Sensor;
+use App\Models\Sensorinfus;
 use App\Events\SensorEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +22,9 @@ class SensorController extends Controller
         //     "updated_at" => $tgl,
         // ]);
 
-    $data = Sensor::where('id', '1')->update([
+    $data = Sensorinfus::where('id', '1')->update([
         "berat_infus" => $nilaiBerat,
-        "laju_tetesan" => $nilaiTetesan,
+        "tetesan_infus" => $nilaiTetesan,
         "created_at" => $tgl,
         "updated_at" => $tgl,
     ]);
@@ -34,11 +35,16 @@ class SensorController extends Controller
     }
 
     public function bacavolume(){
-        $sensor = Sensor::select('*')->get();
+        $sensor = Sensorinfus::select('*')->get();
         return view('admin.dashboard.bacavolume', ['nilaisensor'=> $sensor]);
     }
-    public function bacatetesan(){
-        $sensor = Sensor::select('*')->get();
+    // public function bacatetesan(){
+    //     $sensor = Sensor::select('*')->get();
+    //     return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
+    // }
+
+    public function bacainfus(){
+        $sensor = Sensorinfus::select('*')->get();
         return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
     }
 
