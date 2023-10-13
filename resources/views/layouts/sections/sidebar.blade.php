@@ -62,7 +62,7 @@
           <li class="nav-item collapsed">
             <a class="nav-link collapsed {{checkRouteActive('kamar')}}" href="{{url('kamar')}}">
                 <i class="ri-database-2-fill" ></i>
-                <span>Kamarddd</span>
+                <span>Kamar</span>
             </a>
             </li><!-- End Profile Page Nav -->
           <li class="nav-item collapsed">

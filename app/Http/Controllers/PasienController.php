@@ -23,19 +23,21 @@ class PasienController extends Controller
         // dd($kamar);
 
         $sensor = Sensor::all();
+        // dd($sensor);
+
         // $pasien = Pasien::all();
         $data = PasienService::PasienList($request);
     // dd($data);
         return view('admin.pasien.index',compact('data','kamar','sensor'));
     }
 
-    public function add(Request $request)
-    {
-        $params = $request->all();
-        $pasien = PasienService::PasienList(['pagination'=>0]);
-        return view('admin.pasien.form',compact('pasien'));
+    // public function add(Request $request)
+    // {
+    //     $params = $request->all();
+    //     $pasien = PasienService::PasienList(['pagination'=>0]);
+    //     return view('admin.pasien.form',compact('pasien'));
 
-    }
+    // }
 
     public function index(Request $request)
     {

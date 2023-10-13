@@ -18,11 +18,7 @@ return new class extends Migration
             $table->string('jenis_infus')->nullable();
             $table->enum('gender',['pria','wanita'])->nullable();
             $table->enum('status',['ya','tidak'])->nullable();
-            $table->unsignedBigInteger('kamar_id');
-            $table->foreign('kamar_id')->references('id')->on('kamars')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('sensor_id');
-            $table->foreign('sensor_id')->references('id')->on('sensors')->onDelete('cascade')->onUpdate('cascade');
-
+            
 
 
 

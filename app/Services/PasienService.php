@@ -8,7 +8,7 @@ use App\Models\Admin;
 use App\Models\Kamar;
 // use App\Models\Pasien;
 // use App\Models\kamar;
-use App\Models\pasien;
+use App\Models\Pasien;
 use App\Models\Perawat;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
@@ -31,8 +31,10 @@ class PasienService
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
+            $data = Pasien::paginate(10);
+
             // $data = pasien::with('kamar')->get();
-            $data = kamar::with('pasien')->paginate(10);
+            // $data = kamar::with('pasien')->paginate(10);
         }
 
       
@@ -49,20 +51,24 @@ class PasienService
         DB::beginTransaction();
         // try {
 
-            $inputpasien['name'] = $params['name'];
+            // $inputpasien['nama_pasien'] = $params['nama_pasien'];
+            $inputpasien['nama_pasien'] = $params['nama_pasien'];
+
             $inputpasien['tanggal'] = $params['tanggal'];
             $inputpasien['gender'] = $params['gender'];
+            $inputpasien['status'] = $params['status'];
             $inputpasien['jenis_infus'] = $params['jenis_infus'];
             $inputpasien['kamar_id'] = $params['kamar_id'];
             $inputpasien['sensor_id'] = $params['sensor_id'];
+                // dd($inputpasien);
 
 
 
             if (isset($params['id'])) {
 
-                $pasien =  kamar::with('pasien')->find($params['id']);
+                // $pasien =  kamar::with('pasien')->find($params['id']);
 
-                // $pasien = kamar::find($params['id']);
+                $pasien = Pasien::find($params['id']);
                 // dd($inputpasien);
 
                 $pasien->update($inputpasien);
@@ -70,7 +76,7 @@ class PasienService
 
             }else{
 // dd('c');
-                $pasien = kamar::create($inputpasien);
+                $pasien = Pasien::create($inputpasien);
                 //  dd($inputpasien);
 
             }

@@ -93,7 +93,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td id="tetesaninfus1">Tidak Menetes</td>
+                    <td id="tetesaninfus">Tidak Menetes</td>
                     <td id="volume">00.00</td>
 
                     
@@ -126,7 +126,7 @@
     $(document).ready(function() {
       setInterval(function()  {
         $("#volume").load("{{ url('bacavolume') }}");
-        $("#tetesaninfus1").load("{{ url('bacainfus') }}");
+        $("#tetesaninfus").load("{{ url('bacainfus') }}");
       }, 1000);
 
     });

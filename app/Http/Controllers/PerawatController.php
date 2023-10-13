@@ -31,34 +31,33 @@ class PerawatController extends Controller
 
     public function store(Request $request)
     {
-       if(!isset($request['id'])){
-            $validated = $request->validate([
-                'name' => 'required|min:3|max:255',
-                'username' => 'required|min:3|max:255',
-                'email' => 'required|email:dns|unique:users',
-                'nip' => 'required|min:18|max:18|unique:users',
-                'gender' => 'required',
-                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-                'password_confirmation' => 'min:6'
-            ]);
-            $params = $validated;
-            // dd($params);
-        }else{
-              $validated = $request->validate([
-                'id'=>'required',
-                'name' => 'required|min:3|max:255',
-                'username' => 'required|min:3|max:255',
-                'email' => 'required',
-                'nip' => 'required',
-                'gender' => 'required',
-                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
-                'password_confirmation' => 'min:6'
-            ]);
-            $params = $validated;
-        }        
+    //    if(!isset($request['id'])){
+    //         $validated = $request->validate([
+    //             'name' => 'required|min:3|max:255',
+    //             'username' => 'required|min:3|max:255',
+    //             'nip' => 'required|min:18|max:18|unique:users',
+    //             'gender' => 'required',
+    //             'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+    //             'password_confirmation' => 'min:6'
+    //         ]);
+    //         $params = $validated;
+    //         // dd($params);
+    //     }else{
+    //           $validated = $request->validate([
+    //             'id'=>'required',
+    //             'name' => 'required|min:3|max:255',
+    //             'username' => 'required|min:3|max:255',
+    //             'email' => 'required',
+    //             'nip' => 'required',
+    //             'gender' => 'required',
+    //             'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+    //             'password_confirmation' => 'min:6'
+    //         ]);
+    //         $params = $validated;
+    //     }        
         
         
-        // $params = $request->all();
+        $params = $request->all();
         // dd($params);
         $data = PerawatService::add($params);
         if(!isset($request['id'])){

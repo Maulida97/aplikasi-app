@@ -12,7 +12,7 @@
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="nama_pasien" class="form-control" id="inputNanme4" required>
                           </div>
 
                           <div class="col-12 mt-3">
@@ -33,6 +33,15 @@
                               @endforeach
                             </select>
                           </div>
+                          <div class="col-12 mt-3">
+                            <label for="inputState" class="form-label">Status Kamar</label>
+                            <select name="status"  class="form-select" required >
+                              <option selected>Pilih Status</option>
+                              <option value="ya">Ya</option>
+                              <option value="tidak">Tidak</option>
+                            </select>
+                          </div>
+
                           <div class="col-12 mt-3">
                             <label for="inputState" class="form-label">Sensor</label>
                             <select name="sensor_id"  class="form-select">
@@ -88,12 +97,12 @@
                          
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" value="{{ $val->pasien->name }}" class="form-control" id="inputNanme4" required>
+                            <input type="text" name="name" value="{{ $val->nama_pasien }}" class="form-control" id="inputNanme4" required>
                           </div>
                           <div class="col-12 mt-3">
                           <label for="inputState" class="form-label">Jenis Kelamin</label>
                           <select name="gender"  class="form-select" required >
-                            <option selected>{{ $val->pasien->gender }}</option>
+                            <option selected>{{ $val->gender }}</option>
                             <option value="pria">Pria</option>
                             <option value="wanita">Wanita</option>
                           </select>
@@ -125,7 +134,7 @@
                      
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Tanggal</label>
-                            <input type="date" name="tanggal" value="{{ $val->pasien->tanggal }}" class="form-control" id="inputNanme4" required>
+                            <input type="date" name="tanggal" value="{{ $val->tanggal }}" class="form-control" id="inputNanme4" required>
                           </div>
                         
                           <div class="col-12 mt-3">

@@ -124,19 +124,6 @@
                                             {{-- <div class="invalid-feedback">Please, enter your name!</div> --}}
                                         </div>
 
-                                        <div class="col-12">
-                                            <label for="yourEmail" class="form-label">Your Email</label>
-                                            <input type="email" name="email" placeholder="Your Email"
-                                                class="form-control" id="yourEmail" @error('email') is-invalid @enderror
-                                                required>
-                                            @error('email')
-                                                <div class="invalid-feddback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                            {{-- <div class="invalid-feedback">Please enter a valid Email adddress!</div> --}}
-                                        </div>
-
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>

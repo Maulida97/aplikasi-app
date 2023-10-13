@@ -31,6 +31,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Kamar</th>
+                    <th scope="col">Kamar Terisi</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Jenis Infus</th>
                     <th scope="col">Sensor</th>
@@ -44,11 +45,12 @@
                    @foreach($data as $key => $val)
                   <tr>
                     <th scope="row">{{ $key + $data->firstItem() }}</th>
-                    <td>{{ $val->pasien->name }}</td>
-                    <td>{{ $val->nama_kamar }}</td>
-                    <td>{{ $val->pasien->tanggal }}</td>
-                    <td>{{ $val->pasien->jenis_infus }}</td>
-                    <td>{{ $val->nama }}</td>
+                    <td>{{ $val->nama_pasien }}</td>
+                    <td>{{ $val->kamar->nama_kamar }}</td>
+                    <td>{{ $val->status }}</td>
+                    <td>{{ $val->tanggal }}</td>
+                    <td>{{ $val->jenis_infus }}</td>
+                    <td>{{ $val->sensor->nama_sensor }}</td>
 
                     <td>
                       <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailpasien{{ $val->id }}">Detail</a>

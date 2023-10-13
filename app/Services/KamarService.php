@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use DB;
-// use App\Models\Penyakit;
 use App\Models\Kamar;
 use App\Models\Admin;
 use Illuminate\Pagination\Paginator;

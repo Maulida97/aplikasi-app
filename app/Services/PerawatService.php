@@ -46,13 +46,10 @@ class PerawatService
             $inputUser['username'] = $params['username'];
             $inputUser['user_type'] = 'petugas';
             $inputUser['name'] = $params['name'];
-            $inputUser['email'] = $params['email'];
             $inputUser['nip'] = $params['nip'];
             $inputUser['gender'] = $params['gender'];
             $inputUser['password'] = Hash::make($params['password']);
-            // if(isset($params['image_url'])){
-            //     $inputUser['image_url'] = $params['image_url'];
-            // }   
+           
             if (isset($params['id'])) {
                 // dd($params['id']);
                 // dd($params);
