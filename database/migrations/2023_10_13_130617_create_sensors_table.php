@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('garfik_datas', function (Blueprint $table) {
+        Schema::create('sensors', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_sensor')->nullable();
+            $table->string('volume_infus')->nullable();
+            $table->string('tetesan_infus')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('garfik_datas');
+        Schema::dropIfExists('sensors');
     }
 };

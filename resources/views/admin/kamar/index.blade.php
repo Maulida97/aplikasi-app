@@ -22,53 +22,44 @@
 
           <div class="card table-responsive">
             <div class="card-body">
-              <h5 class="card-title">Pasien Rawat Inap</h5>
+              <h5 class="card-title">Table Admin</h5>
 
               <!-- Default Table -->
               <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Kamar</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Jenis Infus</th>
-                    <th scope="col">Sensor</th>
+                    <th scope="col">Nama Kamar</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" 
-                            data-bs-target="#modaltambahpasien">Tambah Pasien</button>
+                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahkamar">Tambah Kamar</button>
                     
                   </tr>
                 </thead>
                 <tbody>
-                   @foreach($data as $key => $val)
+                  @foreach($data as $key => $val)
                   <tr>
                     <th scope="row">{{ $key + $data->firstItem() }}</th>
-                    <td>{{ $val->pasien->name }}</td>
-                    <td>{{ $val->nama_kamar }}</td>
-                    <td>{{ $val->pasien->tanggal }}</td>
-                    <td>{{ $val->pasien->jenis_infus }}</td>
-                    <td>{{ $val->nama }}</td>
-
+                    <td>{{ $val->nama_kamar}}</td>
+          
                     <td>
-                      <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailpasien{{ $val->id }}">Detail</a>
+                           {{-- <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailadmin{{ $val->id }}">Detail</a> --}}
+                          <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalkamaredit{{ $val->id }}">Edit</a>
 
-                      <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalpasienedit{{ $val->id }}">Edit</a>
-
-                      <a href="#" class="btn btn-danger deletePasien" data-id="{{ $val->id }}">Delete</a>
-
-
+                          <a href="#" class="btn btn-danger deletekamar" data-id="{{ $val->id }}">Delete</a>
+                            {{-- <a href="{{ route('admin.delete', ['id' => $val->id]) }}"
+                            class="btn btn-danger hapus">Delete</a> --}}
+  
                     </td>
                   </tr>
                   @endforeach
                 </tbody>
               </table>
-               {{ $data->links() }}
+              {{ $data->links() }}
 
               <!-- End Default Table Example -->
             </div>
-        @include('admin.pasien.from')
-        @include('admin.pasien.detail')
+        @include('admin.kamar.from')
+        {{-- @include('admin.admin.detail') --}}
 
 
           </div>
@@ -80,7 +71,7 @@
       </div>
     </section>
 
-  </main><!-- End #main -->>
+  </main><!-- End #main -->
 
 @endsection
 
@@ -94,10 +85,10 @@
         @if (session()->has('successEdit'))
             swal("Success!", "Data Berhasil diedit", "success");
         @endif
-	    	@if (session()->has('success_hapus'))
+		@if (session()->has('success_hapus'))
             swal("Success!", "Data Berhasil dihapus", "success");
         @endif
-        $('.deletePasien').click(function() {
+        $('.deletekamar').click(function() {
             var id = $(this).attr('data-id');
             swal({
                     title: "Apakah Anda Yakin?",
@@ -107,9 +98,9 @@
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location = "pasien/delete/" + id;
+                        window.location = "kamar/delete/" + id;
                     } else {
-                        swal("Batal menghapus akun!");
+                        swal("Batal menghapus data!");
                     }
                 });
         });

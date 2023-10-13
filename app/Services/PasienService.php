@@ -5,8 +5,11 @@ namespace App\Services;
 use DB;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Kamar;
+// use App\Models\Pasien;
+// use App\Models\kamar;
+use App\Models\pasien;
 use App\Models\Perawat;
-use App\Models\Pasien;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +31,8 @@ class PasienService
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
-            $data = Pasien::paginate(10);
+            // $data = pasien::with('kamar')->get();
+            $data = kamar::with('pasien')->paginate(10);
         }
 
       
@@ -46,22 +50,27 @@ class PasienService
         // try {
 
             $inputpasien['name'] = $params['name'];
-            $inputpasien['bangsal'] = $params['bangsal'];
-            $inputpasien['kamar'] = $params['kamar'];
-            $inputpasien['no_tempat_tidur'] = $params['no_tempat_tidur'];
             $inputpasien['tanggal'] = $params['tanggal'];
-            $inputpasien['penyakit'] = $params['penyakit'];
+            $inputpasien['gender'] = $params['gender'];
             $inputpasien['jenis_infus'] = $params['jenis_infus'];
+            $inputpasien['kamar_id'] = $params['kamar_id'];
+            $inputpasien['sensor_id'] = $params['sensor_id'];
+
+
 
             if (isset($params['id'])) {
-                //  dd($inputpasien);
 
-                $pasien = Pasien::find($params['id']);
+                $pasien =  kamar::with('pasien')->find($params['id']);
+
+                // $pasien = kamar::find($params['id']);
+                // dd($inputpasien);
+
                 $pasien->update($inputpasien);
+
 
             }else{
 // dd('c');
-                $pasien = Pasien::create($inputpasien);
+                $pasien = kamar::create($inputpasien);
                 //  dd($inputpasien);
 
             }

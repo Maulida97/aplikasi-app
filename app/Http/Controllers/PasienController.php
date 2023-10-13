@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Kamar;
+use App\Models\Pasien;
+use App\Models\Sensor;
+use App\Services\KamarService;
 use Illuminate\Http\Request;
 use App\Services\PasienService;
 
@@ -16,8 +19,14 @@ class PasienController extends Controller
    
     public function list(Request $request)
     {
+        $kamar = Kamar::all();
+        // dd($kamar);
+
+        $sensor = Sensor::all();
+        // $pasien = Pasien::all();
         $data = PasienService::PasienList($request);
-        return view('admin.pasien.index',compact('data'));
+    // dd($data);
+        return view('admin.pasien.index',compact('data','kamar','sensor'));
     }
 
     public function add(Request $request)
@@ -28,36 +37,39 @@ class PasienController extends Controller
 
     }
 
+    public function index(Request $request)
+    {
+        // $kamar = Kamar::all();
+        // dd($kamar1);
+        // return view('admin.pasien.form', compact('kamar1'));
+        $kamar = Kamar::all();
+        return view('admin.pasien.index', compact('kamar'));
+
+    }
+
     public function store(Request $request)
     {
         $params = $request->all();
         // dd($params);
-         if(!isset($request['id'])){
-            $validated = $request->validate([
-                'name' => 'required|min:3|max:255',
-                'bangsal' => '',
-                'kamar' => 'required',
-                'no_tempat_tidur' => 'required',
-                'tanggal' => 'required',
-                'penyakit' => 'required',
-                'jenis_infus' => 'required',
-            ]);
-            $params = $validated;
-            // dd($params);
-        }else{
-            // $params = $request->all();
-              $validated = $request->validate([
-                'id'=>'required',
-                'name' => 'required|min:3|max:255',
-                'bangsal' => '',
-                'kamar' => 'required',
-                'no_tempat_tidur' => 'required',
-                'tanggal' => 'required',
-                'penyakit' => 'required',
-                'jenis_infus' => 'required',
-            ]);
-            $params = $validated;
-        }        
+        //  if(!isset($request['id'])){
+        //     $validated = $request->validate([
+        //         'name' => 'required|min:3|max:255',
+        //         'tanggal' => 'required',
+        //         'penyakit' => 'required',
+        //         'jenis_infus' => 'required',
+        //     ]);
+        //     $params = $validated;
+        //     // dd($params);
+        // }else{
+        //     // $params = $request->all();
+        //       $validated = $request->validate([
+        //         'id'=>'required',
+        //         'name' => 'required|min:3|max:255',
+        //         'tanggal' => 'required',
+        //         'jenis_infus' => 'required',
+        //     ]);
+        //     $params = $validated;
+        // }        
         // dd($params);
         $data = PasienService::add($params);
                 //  dd($params);

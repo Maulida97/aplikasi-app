@@ -30,7 +30,7 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Kode</th>
+                    <th scope="col">Nama</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Aksi</th>
                     <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#verticalycentered">Tambah Data</button>
