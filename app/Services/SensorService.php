@@ -40,4 +40,45 @@ class SensorService
         return $data;
 
     }
+
+    public static function add($params){
+
+        DB::beginTransaction();
+        try {
+
+            $inputsensor['nama_sensor'] = $params['nama_sensor'];
+            $inputsensor['tetesan_infus'] = $params['tetesan_infus'];
+            $inputsensor['volume_infus'] = $params['volume_infus'];
+
+
+
+            if (isset($params['id'])) {
+
+                $sensor = Sensor::find($params['id']);
+                $sensor->update($inputsensor);
+
+            }else{
+                $sensor = Sensor::create($inputsensor);
+            }
+            DB::commit();
+            return $sensor;
+        } catch (\Throwable $th) {
+
+            DB::rollback();
+            return $th;
+
+        }
+    }
+
+    public static function deleteSensor($id)
+    {
+        $data = Sensor::destroy($id);
+        if($data){
+            return "Deleted";
+        }else{
+            return "Failed";
+        }
+    }
+
+
 }

@@ -91,6 +91,10 @@ Route::get('/kamar', [KamarController::class, 'list'])->name('kamar')->middlewar
 Route::post('/kamar/save', [KamarController::class, 'store'])->name('kamar.save')->middleware('auth');
 Route::get('/kamar/delete/{id}', [KamarController::class, 'delete'])->name('kamar.delete')->middleware('auth');
 
+
+Route::get('/sensor', [SensorController::class, 'listsensor'])->name('sensor')->middleware('auth');
+Route::post('/sensor/save', [SensorController::class, 'store'])->name('sensor.save')->middleware('auth');
+Route::get('/sensor/delete/{id}', [SensorController::class, 'delete'])->name('sensor.delete')->middleware('auth');
 // Route::get('/alat', [AlatController::class, 'list'])->name('alat')->middleware('auth');
 // Route::post('/alat/save', [AlatController::class, 'store'])->name('alat.save')->middleware('auth');
 // Route::get('/alat/delete/{id}', [AlatController::class, 'delete'])->name('alat.delete')->middleware('auth');

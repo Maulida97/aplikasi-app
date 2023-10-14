@@ -32,7 +32,6 @@
                     <th scope="col">Nama</th>
                     <th scope="col">User Name</th>
                     <th scope="col">NIP</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Aksi</th>
                     <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahadmin">Tambah Admin</button>
                     
@@ -45,7 +44,6 @@
                     <td>{{ $val->user->name}}</td>
                     <td>{{ $val->user->username }}</td>
                     <td>{{ $val->user->nip }}</td>
-                    <td>{{ $val->user->email }}</td>
                     <td>
                            <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailadmin{{ $val->id }}">Detail</a>
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaladminedit{{ $val->id }}">Edit</a>

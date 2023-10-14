@@ -44,18 +44,7 @@
                                   {{ $message }}
                               </div>
                           @enderror
-
-                          <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control"  
-                                    autocomplete="off" @error('email') is-invalid @enderror required>
-                          </div>
-                          @error('email')
-                              <div class="invalid-feddback">
-                                  {{ $message }}
-                              </div>
-                          @enderror
-
+                          
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
                               <select name="gender"  class="form-select" required >
@@ -153,18 +142,6 @@
                                    @error('nip') is-invalid @enderror value="{{ $val->user->nip }}" required>
                           </div>
                           @error('nip')
-                            <div class="invalid-feddback">
-                                {{ $message }}
-                            </div>
-                             @enderror
-
-
-                          <div class="col-12 mt-3">
-                            <label for="inputNanme4" class="form-label">Email</label>
-                            <input type="email" name="email"  class="form-control"  
-                                  @error('email') is-invalid @enderror value="{{ $val->user->email }}" required>
-                          </div>
-                           @error('email')
                             <div class="invalid-feddback">
                                 {{ $message }}
                             </div>

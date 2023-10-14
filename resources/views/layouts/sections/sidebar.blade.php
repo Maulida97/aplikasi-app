@@ -66,18 +66,18 @@
             </a>
             </li><!-- End Profile Page Nav -->
           <li class="nav-item collapsed">
-              <a class="nav-link collapsed {{checkRouteActive('')}}" href="{{url('')}}">
+              <a class="nav-link collapsed {{checkRouteActive('sensor')}}" href="{{url('sensor')}}">
                   <i class="ri-database-2-fill" ></i>
-                  <span>Tes</span>
+                  <span>Sensor</span>
               </a>
           </li><!-- End Profile Page Nav -->
 
-          <li class="nav-item collapsed">
+          {{-- <li class="nav-item collapsed">
               <a class="nav-link collapsed {{checkRouteActive('alat')}}" href="{{url('alat')}}">
                   <i class="ri-database-2-fill" ></i>
                   <span>Alat</span>
               </a>
-          </li><!-- End Profile Page Nav -->
+          </li><!-- End Profile Page Nav --> --}}
 
           
 
