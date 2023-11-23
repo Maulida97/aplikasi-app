@@ -67,7 +67,7 @@ Route::post('/admin/save', [AdminController::class, 'store'])->name('admin.save'
 Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete')->middleware('auth');
 
 Route::get('/pasien', [PasienController::class, 'list'])->name('pasien')->middleware('auth');
-// Route::get('/pasien', [PasienController::class, 'index'])->name('pasien')->middleware('auth');
+Route::get('/dashboard', [PasienController::class, 'index1'])->name('pasien')->middleware('auth');
 
 Route::post('/pasien/save', [PasienController::class, 'store'])->name('pasien.save')->middleware('auth');
 Route::get('/pasien/delete/{id}', [PasienController::class, 'delete'])->name('pasien.delete')->middleware('auth');
@@ -102,11 +102,20 @@ Route::get('/sensor/delete/{id}', [SensorController::class, 'delete'])->name('se
 
 //Route di node MCU
 Route::get('/simpan/{nilaiBerat}/{nilaiTetesan}', [SensorController::class, 'simpan']);
+Route::get('/simpan2/{nilaiBerat2}/{nilaiTetesan2}', [SensorController::class, 'simpan2']);
+Route::get('/simpan3/{nilaiBerat3}/{nilaiTetesan3}', [SensorController::class, 'simpan3']);
 
 
-//ajax realtime
+// Route::get('/simpan/{deviceID}/{nilaiBerat}/{nilaiTetesan}', [SensorController::class, 'simpan']);
+
+
+// //ajax realtime
 Route::get('/bacavolume', [SensorController::class, 'bacavolume']);
 Route::get('/bacainfus', [SensorController::class, 'bacainfus']);
+Route::get('/bacavolume2', [SensorController::class, 'bacavolume2']);
+Route::get('/bacainfus2', [SensorController::class, 'bacainfus2']);
+Route::get('/bacavolume3', [SensorController::class, 'bacavolume3']);
+Route::get('/bacainfus3', [SensorController::class, 'bacainfus3']);
 
 
 

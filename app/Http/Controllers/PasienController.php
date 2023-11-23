@@ -31,6 +31,19 @@ class PasienController extends Controller
         return view('admin.pasien.index',compact('data','kamar','sensor'));
     }
 
+    public function index1(Request $request)
+    {
+        $kamar = Kamar::all();
+        // dd($kamar);
+
+        $sensor = Sensor::all();
+        // dd($sensor);
+
+        // $pasien = Pasien::all();
+        $data = PasienService::PasienList($request);
+    // dd($data);
+        return view('admin.dashboard.index',compact('data'));
+    }
     // public function add(Request $request)
     // {
     //     $params = $request->all();

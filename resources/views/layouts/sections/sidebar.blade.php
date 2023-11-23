@@ -3,7 +3,7 @@
 
      <ul class="sidebar-nav" id="sidebar-nav">
 
-         <li class="nav-item" data-bs-target="#components-nav" data-bs-toggle="collapse">
+         <li class="nav-item"  data-bs-toggle="collapse">
              <a class="nav-link collapsed" href="dashboard">
                  <i class="bi bi-grid"></i>
                  <span>Dashboard</span>
@@ -14,8 +14,8 @@
 
          <li class="nav-heading">Pages</li>
 
-           <li class="nav-item collapsed">
-             <a class="nav-link collapsed {{checkRouteActive('pasien')}}" href="{{url('pasien')}}">
+           <li class="nav-item">
+             <a class="nav-link collapsed " href="{{url('pasien')}}">
                  <i class="bi bi-person" ></i>
                  <span>Pasien</span>
              </a>

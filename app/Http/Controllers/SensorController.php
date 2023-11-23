@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Kamar;
+use App\Models\Pasien;
 use App\Models\Sensor;
-use App\Models\Sensorinfus;
-use App\Services\SensorService;
 use App\Events\SensorEvent;
+use App\Models\Sensorinfus;
 use Illuminate\Http\Request;
+use App\Services\SensorService;
 use Illuminate\Support\Facades\DB;
 
 class SensorController extends Controller
 {
     public function list(Request $request)
     {
+        // $kamar = Kamar::all();
+        // $pasien = Pasien::all();
         $data = SensorService::sensortList($request);
         return view('admin.dashboard.index',compact('data'));
     }
@@ -23,45 +27,140 @@ class SensorController extends Controller
     {
         // $data = DB::table('sensors');
         $tgl = Carbon::now();
-        // $data->insert([
-        //     "berat_badan" => $nilaiBerat,
-        //     "tinggi_badan" => $nilaiTinggi,
-        //     "created_at" => $tgl,
-        //     "updated_at" => $tgl,
-        // ]);
-
-    $data = Sensor::where('id', '1')->update([
-        "berat_infus" => $nilaiBerat,
-        "tetesan_infus" => $nilaiTetesan,
-        "created_at" => $tgl,
-        "updated_at" => $tgl,
-    ]);
-
+        //
+        // $data = Sensor::where('id', '1')->update([
+        //         "device_id" => $deviceID,
+        //         "volume_infus" => $nilaiBerat,
+        //         "tetesan_infus" => $nilaiTetesan,
+        //         "created_at" => $tgl,
+        //         "updated_at" => $tgl,
+        //     ]);
+            $data = Sensor::where('id', '1')->update([
+                "volume_infus" => $nilaiBerat,
+                "tetesan_infus" => $nilaiTetesan,
+                "created_at" => $tgl,
+                "updated_at" => $tgl,
+            ]);
+    // $data = Sensor::where('id', '1')->update([
+    //     "volume_infus" => $nilaiBerat,
+    //     "tetesan_infus" => $nilaiTetesan,
+    //     "created_at" => $tgl,
+    //     "updated_at" => $tgl,
+    // ]);
+    // $data = Sensor::where('id', '2')->update([
+    //     "volume_infus" => $nilaiBerat,
+    //     "tetesan_infus" => $nilaiTetesan,
+    //     "created_at" => $tgl,
+    //     "updated_at" => $tgl,
+    // ]);
+    // $data = Sensor::where('id', '3')->update([
+    //     "volume_infus" => $nilaiBerat,
+    //     "tetesan_infus" => $nilaiTetesan,
+    //     "created_at" => $tgl,
+    //     "updated_at" => $tgl,
+    // ]);
     // return event(new SensorEvent($nilaiBerat, $nilaiTetesan));
-
-
+    }
+    public function simpan2($nilaiTetesan2, $nilaiBerat2)
+    {
+        // $data = DB::table('sensors');
+        $tgl = Carbon::now();
+        
+            $data = Sensor::where('id', '2')->update([
+                "volume_infus" => $nilaiBerat2,
+                "tetesan_infus" => $nilaiTetesan2,
+                "created_at" => $tgl,
+                "updated_at" => $tgl,
+            ]);
+   
     }
 
+    public function simpan3($nilaiTetesan3, $nilaiBerat3)
+    {
+        // $data = DB::table('sensors');
+        $tgl = Carbon::now();
+        
+            $data = Sensor::where('id', '3')->update([
+                "volume_infus" => $nilaiBerat3,
+                "tetesan_infus" => $nilaiTetesan3,
+                "created_at" => $tgl,
+                "updated_at" => $tgl,
+            ]);
+   
+    }
+
+
+
+    public function tampilkanDataSensor($deviceID) {
+        $dataSensor = Sensor::where('device_id', $deviceID)->get();
+        return view('admin.dashboard.bacavolume')->with('dataSensor', $dataSensor);
+    }
+    // Infus 1
     public function bacavolume(){
-        $sensor = Sensor::select('*')->get();
+        $sensor = Sensor::where('id', '1')->get();
         return view('admin.dashboard.bacavolume', ['nilaisensor'=> $sensor]);
+    }
+    public function bacainfus(){
+        $sensor = Sensor::where('id', '1')->get();
+        return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
     }
     // public function bacatetesan(){
     //     $sensor = Sensor::select('*')->get();
     //     return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
     // }
 
-    public function bacainfus(){
-        $sensor = Sensor::select('*')->get();
-        return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
+        // Infus 2
+    public function bacavolume2(){
+        $sensor = Sensor::where('id', '2')->get();
+        return view('admin.dashboard.bacavolume2', ['nilaisensor2'=> $sensor]);
+    }
+    public function bacainfus2(){
+        $sensor = Sensor::where('id', '2')->get();
+        return view('admin.dashboard.bacatetesan2', ['nilaisensor2'=> $sensor]);
     }
 
+    // Infus 3
+    public function bacavolume3(){
+        $sensor = Sensor::where('id', '3')->get();
+        return view('admin.dashboard.bacavolume3', ['nilaisensor3'=> $sensor]);
+    }
+    public function bacainfus3(){
+        $sensor = Sensor::where('id', '3')->get();
+        return view('admin.dashboard.bacatetesan3', ['nilaisensor3'=> $sensor]);
+    }
     // public function simpan($nilaivolume, $nilaitetesan){
     //     Sensor::where('id', '1')->update([
     //         'berat_infus' => request()->nilaivolum,
     //         'laju_tetesan' => request()->nilaitetesan
     // ]);
     // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function listsensor(Request $request)
@@ -74,23 +173,6 @@ class SensorController extends Controller
     public function store(Request $request)
     {
         $params = $request->all();
-        // if(!isset($request['id'])){
-        //     $validated = $request->validate([
-        //         'kode' => 'required|min:3|max:255',
-        //         'name' => 'required|min:3|max:255',
-        //     ]);
-        //     $params = $validated;
-        //     // dd($params);
-        // }else{
-        //     // $params = $request->all();
-        //       $validated = $request->validate([
-        //         'id'=>'required',
-        //         'kode' => 'required|min:3|max:255',
-        //         'name' => 'required|min:3|max:255',
-        //     ]);
-        //     $params = $validated;
-        // }        
-        
         $data = SensorService::add($params);
         if(!isset($request['id'])){
             return redirect('/sensor')->with('success', 'Berhasil menambahkan data');

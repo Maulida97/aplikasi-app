@@ -23,6 +23,10 @@
                   <label for="inputNanme4" class="form-label">Tetesan</label>
                   <input type="text" name="tetesan_infus" class="form-control" id="inputNanme4">
                 </div>
+                {{-- <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Device Id</label>
+                  <input type="text" name="device_id" class="form-control" id="inputNanme4">
+                </div> --}}
                 
                 <div class="text-center mt-4">
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -60,7 +64,7 @@
             </div>
             <div class="modal-body">
               <form class="row g-3" action="{{ route('sensor.save') }}" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="{{ $val->id }}">
+                <input type="text" name="id" value="{{ $val->id }}">
                   @csrf
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Nama Kamar</label>
@@ -74,6 +78,10 @@
                   <label for="inputNanme4" class="form-label">Tetesan</label>
                   <input type="text" name="tetesan_infus" value="{{ $val->tetesan_infus }}" class="form-control" id="inputNanme4">
                 </div>
+                {{-- <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Device Id</label>
+                  <input type="text" name="device_id" value="{{ $val->device_id }}" class="form-control" id="inputNanme4">
+                </div> --}}
                 <div class="text-center mt-4">
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

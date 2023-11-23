@@ -382,6 +382,8 @@ h6 {
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
+  /* background-color: #a2c5fc; */
+
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -610,7 +612,9 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #4e73df;
+
 }
 
 @media (max-width: 1199px) {
@@ -698,21 +702,21 @@ h6 {
 }
 
 .sidebar-nav .nav-link.collapsed {
-  color: #012970;
-  background: #fff;
+  color: #cddaee;
+  background: #4e73df;
 }
 
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  color: #cddaee;
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  color: #ffffff;
+  background: #4e73df;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #ffffff;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -1214,28 +1218,31 @@ h6 {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  /* position: absolute;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px; */
+  height: 60px;
   padding: 20px 0;
   font-size: 14px;
   transition: all 0.3s;
   border-top: 1px solid #cddfff;
+  /* background-color: #dbe8ff; */
+
+  
   /* bottom: 0; */
   
 }
 
 .footer .copyright {
   text-align: center;
-  color: #012970;
+  color: #1a1919;
 
   bottom: 0;
   width: 80%;
   position: fixed;
   /* height: 50px; */
   line-height: 50px;
-  background: #fff;
+  /* background: #fff; */
   /* color: #fff; */
   padding-left: 10px;
   /* position: fixed; */

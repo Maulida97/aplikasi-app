@@ -22,7 +22,7 @@
 
           <div class="card table-responsive">
             <div class="card-body">
-              <h5 class="card-title">Table Admin</h5>
+              <h5 class="card-title">Table Sensor</h5>
 
               <!-- Default Table -->
               <table class="table table-striped">
@@ -32,8 +32,9 @@
                     <th scope="col">Nama Sensor</th>
                     <th scope="col">Volume Infus</th>
                     <th scope="col">Tetesan Infus</th>
+                    {{-- <th scope="col">Device Id</th> --}}
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahsensor">Tambah Kamar</button>
+                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahsensor">Tambah Sensor</button>
                     
                   </tr>
                 </thead>
@@ -44,6 +45,7 @@
                     <td>{{ $val->nama_sensor}}</td>
                     <td>{{ $val->volume_infus}}</td>
                     <td>{{ $val->tetesan_infus}}</td>
+                    {{-- <td>{{ $val->device_id}}</td> --}}
           
                     <td>
                            {{-- <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailadmin{{ $val->id }}">Detail</a> --}}
