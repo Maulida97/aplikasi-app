@@ -15,18 +15,18 @@
          <li class="nav-heading">Pages</li>
 
            <li class="nav-item">
-             <a class="nav-link collapsed " href="{{url('pasien')}}">
+             <a class="nav-link collapsed {{ checkRouteActive('pasien') }}" href="{{url('pasien')}}">
                  <i class="bi bi-person" ></i>
                  <span>Pasien</span>
              </a>
          </li><!-- End Profile Page Nav -->
-
+{{-- 
          <li class="nav-item collapsed">
              <a class="nav-link collapsed {{checkRouteActive('perawat')}}" href="{{url('perawat')}}">
                  <i class="bi bi-person" ></i>
                  <span>Perawat</span>
              </a>
-         </li><!-- End Profile Page Nav -->
+         </li><!-- End Profile Page Nav --> --}}
 
           <li class="nav-item collapsed">
              <a class="nav-link collapsed {{checkRouteActive('admin')}}" href="{{url('admin')}}">

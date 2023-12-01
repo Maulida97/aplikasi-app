@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Kamar;
 use App\Models\Pasien;
 use App\Models\Sensor;
+use App\Events\notifEvent;
 use App\Events\SensorEvent;
 use App\Models\Sensorinfus;
 use Illuminate\Http\Request;
@@ -18,48 +19,24 @@ class SensorController extends Controller
     {
         // $kamar = Kamar::all();
         // $pasien = Pasien::all();
+        // notify()->success('Welcome to Laravel Notify ⚡️') or notify()->success('Welcome to Laravel Notify ⚡️', 'My custom title');
         $data = SensorService::sensortList($request);
-        return view('admin.dashboard.index',compact('data'));
+        // notify()->success('Laravel Notify is awesome!');
+        return view('admin.dashboard.index',compact('data'))->with('success', 'Berhasil menambahkan data');
     }
 
 
     public function simpan($nilaiTetesan, $nilaiBerat)
     {
-        // $data = DB::table('sensors');
         $tgl = Carbon::now();
-        //
-        // $data = Sensor::where('id', '1')->update([
-        //         "device_id" => $deviceID,
-        //         "volume_infus" => $nilaiBerat,
-        //         "tetesan_infus" => $nilaiTetesan,
-        //         "created_at" => $tgl,
-        //         "updated_at" => $tgl,
-        //     ]);
             $data = Sensor::where('id', '1')->update([
                 "volume_infus" => $nilaiBerat,
                 "tetesan_infus" => $nilaiTetesan,
                 "created_at" => $tgl,
                 "updated_at" => $tgl,
             ]);
-    // $data = Sensor::where('id', '1')->update([
-    //     "volume_infus" => $nilaiBerat,
-    //     "tetesan_infus" => $nilaiTetesan,
-    //     "created_at" => $tgl,
-    //     "updated_at" => $tgl,
-    // ]);
-    // $data = Sensor::where('id', '2')->update([
-    //     "volume_infus" => $nilaiBerat,
-    //     "tetesan_infus" => $nilaiTetesan,
-    //     "created_at" => $tgl,
-    //     "updated_at" => $tgl,
-    // ]);
-    // $data = Sensor::where('id', '3')->update([
-    //     "volume_infus" => $nilaiBerat,
-    //     "tetesan_infus" => $nilaiTetesan,
-    //     "created_at" => $tgl,
-    //     "updated_at" => $tgl,
-    // ]);
-    // return event(new SensorEvent($nilaiBerat, $nilaiTetesan));
+
+            return event(new notifEvent($nilaiTetesan, $nilaiBerat));
     }
     public function simpan2($nilaiTetesan2, $nilaiBerat2)
     {

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Mckenziearts\Notify\LaravelNotifyServiceProvider;
 
 return [
 
@@ -168,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        LaravelNotifyServiceProvider::class
     ])->toArray(),
 
     /*

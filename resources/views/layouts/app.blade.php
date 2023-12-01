@@ -12,7 +12,6 @@
   <!-- Favicons -->
   <link href="{{asset('niceadmin')}}/assets/img/favicon.png" rel="icon">
   <link href="{{asset('niceadmin')}}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -44,6 +43,41 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <style>
+    .colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
+}
+
+  </style>
 </head>
 
 <body>
@@ -738,6 +772,8 @@
   <script src="{{asset('niceadmin')}}/assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="{{asset('niceadmin')}}/assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="{{asset('niceadmin')}}/assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 
   <!-- Template Main JS File -->
   <script src="{{asset('niceadmin')}}/assets/js/main.js"></script>
@@ -747,6 +783,10 @@
   
 @yield('scriptJs')
 @yield('script')
+
+<x-notify::notify />
+@notifyJs
+
 
 
 

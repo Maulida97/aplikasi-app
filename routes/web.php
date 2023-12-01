@@ -34,9 +34,17 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/dashboard', function () {
-//     return view('layouts.app');
-// });
+Route::get('/cobs', function () {
+    notify()->success('Laravel Notify is awesome!');
+    notify()->success('Laravel Notify is awesome!');
+    notify()->success('Laravel Notify is awesome!');
+    notify()->success('Laravel Notify is awesome!');
+    notify()->success('Laravel Notify is awesome!');
+    notify()->success('Laravel Notify is awesome!');
+    notify()->success('Laravel Notify is awesome!');
+
+    return view('coba');
+});
 
 
 Route::get('/register', [RegisController::class, 'index'])->name('register');
@@ -67,7 +75,7 @@ Route::post('/admin/save', [AdminController::class, 'store'])->name('admin.save'
 Route::get('/admin/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete')->middleware('auth');
 
 Route::get('/pasien', [PasienController::class, 'list'])->name('pasien')->middleware('auth');
-Route::get('/dashboard', [PasienController::class, 'index1'])->name('pasien')->middleware('auth');
+// Route::get('/dashboard', [PasienController::class, 'index1'])->name('pasien')->middleware('auth');
 
 Route::post('/pasien/save', [PasienController::class, 'store'])->name('pasien.save')->middleware('auth');
 Route::get('/pasien/delete/{id}', [PasienController::class, 'delete'])->name('pasien.delete')->middleware('auth');
@@ -118,7 +126,10 @@ Route::get('/bacavolume3', [SensorController::class, 'bacavolume3']);
 Route::get('/bacainfus3', [SensorController::class, 'bacainfus3']);
 
 
+Route::get('/bacainfus3', [SensorController::class, 'bacainfus3']);
 
+
+Route::get('/coba', 'UserController@index')->name('user');
 
 // Route::get('/simpan/{nilaivolume}/{nilaitetesan}', [SensorController::class, 'simpan']);
 
