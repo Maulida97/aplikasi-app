@@ -342,7 +342,6 @@ Swal.fire({
   </script>
 
   <script type="text/javascript">
-   
         var nilaiVolume = $("#volume2").text();
         console.log("Nilai yang baru: " + nilaiVolume);
  
