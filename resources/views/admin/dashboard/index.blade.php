@@ -220,6 +220,8 @@
         </div><!-- End Left side columns -->
 
       </div>
+    @include('admin.dashboard.modal.modal');
+
     </section>
 
 
@@ -269,37 +271,8 @@
 
       </div>
     </section> --}}
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Basic Modal</h5>
-      <p>Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page</p>
 
-      <!-- Basic Modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-        Basic Modal
-      </button>
-      <div class="modal fade" id="basicModal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Basic Modal</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div><!-- End Basic Modal-->
-
-    </div>
-  </div>
   </main><!-- End #main -->
-  {{-- @include('admin.dashboard.modal.modal'); --}}
 
 
 @endsection
@@ -321,13 +294,58 @@ Swal.fire({
 
   <script type="text/javascript">
     $(document).ready(function() {
-      setInterval(function()  {
-        $("#volume").load("{{ url('bacavolume') }}");
+      var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+  
+      // Fungsi untuk menampilkan modal peringatan
+      function showModal() {
+        // Memunculkan modal peringatan
+        $("#basicModal").modal("show");
+  
+        // Memainkan suara peringatan
+  
+        // Set flag modal terbuka menjadi true
+        modalOpen = true;
+  
+        // Menutup modal setelah 1 menit
+        setTimeout(function() {
+          $("#basicModal").modal("hide");
+          modalOpen = false;
+          audio.pause();
+          audio.currentTime = 0;
+        }, 60000); // 60000 milidetik = 1 menit
+      }
+  
+      // Set interval untuk memuat data setiap 2 detik
+      setInterval(function() {
+        // Memuat data volume dari server
+        $("#volume").load("{{ url('bacavolume') }}", function(responseText, textStatus, jqXHR) {
+          // Menggunakan callback function untuk menangani data setelah dimuat
+  
+          // Memeriksa apakah volume sama dengan 100 dan modal belum terbuka
+          if (responseText.trim() === "100" && !modalOpen) {
+            showModal();
+          }
+        });
+  
+        // Memuat data tetesan infus dari server
         $("#tetesaninfus").load("{{ url('bacainfus') }}");
       }, 2000);
-
+  
+      // Menangani tombol "Tutup" pada modal
+      $("#basicModal").on("modal", function() {
+        // Set flag modal terbuka menjadi false
+        modalOpen = false;
+  
+        // Memberhentikan suara peringatan ketika modal ditutup
+      });
     });
   </script>
+  
+  
+
+
+
+
 
   <script type="text/javascript">
 
@@ -339,12 +357,20 @@ Swal.fire({
 
       }, 2000);
     });
+
+    
+    function tangkapPerubahanNilai(nilai) {
+    console.log("Nilai yang berubah: " + nilai);
+   
+    }
   </script>
 
   <script type="text/javascript">
+    $(document).ready(function() {
         var nilaiVolume = $("#volume2").text();
+
         console.log("Nilai yang baru: " + nilaiVolume);
- 
+    });
         
        
         
