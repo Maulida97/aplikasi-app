@@ -220,7 +220,8 @@
         </div><!-- End Left side columns -->
 
       </div>
-    @include('admin.dashboard.modal.modal');
+    @include('admin.dashboard.modal.modal')
+
 
     </section>
 
@@ -295,20 +296,22 @@ Swal.fire({
   <script type="text/javascript">
     $(document).ready(function() {
       var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+      var audio = new Audio("audio/suara.mp3"); // Ganti dengan path ke file suara peringatan
   
       // Fungsi untuk menampilkan modal peringatan
-      function showModal() {
+      function showModal(modalId) {
         // Memunculkan modal peringatan
-        $("#basicModal").modal("show");
+        $(modalId).modal("show");
   
         // Memainkan suara peringatan
+        audio.play();
   
         // Set flag modal terbuka menjadi true
         modalOpen = true;
   
         // Menutup modal setelah 1 menit
         setTimeout(function() {
-          $("#basicModal").modal("hide");
+          $(modalId).modal("hide");
           modalOpen = false;
           audio.pause();
           audio.currentTime = 0;
@@ -321,14 +324,281 @@ Swal.fire({
         $("#volume").load("{{ url('bacavolume') }}", function(responseText, textStatus, jqXHR) {
           // Menggunakan callback function untuk menangani data setelah dimuat
   
+          // Memeriksa apakah volume sesuai dengan kondisi dan modal belum terbuka
+          if (
+            (responseText.trim() === "30" ||
+             responseText.trim() === "20" ||
+             responseText.trim() === "10" ||
+             responseText.trim() === "5" ||
+             responseText.trim() === "0") && !modalOpen
+          ) {
+            // Memunculkan modal jika kondisi terpenuhi
+            showModal("#basicModal");
+          }
+        });
+  
+        // Memuat data tetesan infus dari server
+        
+      }, 2000);
+    });
+  </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+    
+        // Fungsi untuk menampilkan modal peringatan
+        function showModal(modalId) {
+          // Memunculkan modal peringatan
+          $(modalId).modal("show");
+    
+          // Memainkan suara peringatan
+    
+          // Set flag modal terbuka menjadi true
+          modalOpen = true;
+    
+          // Menutup modal setelah 1 menit
+          setTimeout(function() {
+            $(modalId).modal("hide");
+            modalOpen = false;
+          }, 60000); // 60000 milidetik = 1 menit
+        }
+    
+        // Set interval untuk memuat data setiap 2 detik
+        setInterval(function() {
+          // Memuat data volume dari server
+    
+          // Memuat data tetesan infus dari server
+          $("#tetesaninfus").load("{{ url('bacainfus') }}", function(responseText, textStatus, jqXHR) {
+            // Menggunakan callback function untuk menangani data setelah dimuat
+    
+            // Memeriksa apakah tetesan infus sama dengan 0 dan modal belum terbuka
+            if (responseText.trim() === "0" && !modalOpen) {
+              // Memunculkan modal jika kondisi terpenuhi
+              showModal("#basicModal12");
+            }
+          });
+        }, 2000);
+      });
+    </script>
+  
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+      var audio = new Audio("audio/suara.mp3"); // Ganti dengan path ke file suara peringatan
+  
+      // Fungsi untuk menampilkan modal peringatan
+      function showModal(modalId) {
+        // Memunculkan modal peringatan
+        $(modalId).modal("show");
+  
+        // Memainkan suara peringatan
+        audio.play();
+  
+        // Set flag modal terbuka menjadi true
+        modalOpen = true;
+  
+        // Menutup modal setelah 1 menit
+        setTimeout(function() {
+          $(modalId).modal("hide");
+          modalOpen = false;
+          audio.pause();
+          audio.currentTime = 0;
+        }, 60000); // 60000 milidetik = 1 menit
+      }
+  
+      // Set interval untuk memuat data setiap 2 detik
+      setInterval(function() {
+        // Memuat data volume dari server
+        $("#volume2").load("{{ url('bacavolume2') }}", function(responseText, textStatus, jqXHR) {
+          // Menggunakan callback function untuk menangani data setelah dimuat
+  
+          // Memeriksa apakah volume sesuai dengan kondisi dan modal belum terbuka
+          if (
+            (responseText.trim() === "30" ||
+             responseText.trim() === "20" ||
+             responseText.trim() === "10" ||
+             responseText.trim() === "5" ||
+             responseText.trim() === "0") && !modalOpen
+          ) {
+            // Memunculkan modal jika kondisi terpenuhi
+            showModal("#ruangan22");
+          }
+        });
+  
+        // Memuat data tetesan infus dari server
+        
+      }, 2000);
+    });
+  </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+    
+        // Fungsi untuk menampilkan modal peringatan
+        function showModal(modalId) {
+          // Memunculkan modal peringatan
+          $(modalId).modal("show");
+    
+          // Memainkan suara peringatan
+    
+          // Set flag modal terbuka menjadi true
+          modalOpen = true;
+    
+          // Menutup modal setelah 1 menit
+          setTimeout(function() {
+            $(modalId).modal("hide");
+            modalOpen = false;
+          }, 60000); // 60000 milidetik = 1 menit
+        }
+    
+        // Set interval untuk memuat data setiap 2 detik
+        setInterval(function() {
+          // Memuat data volume dari server
+    
+          // Memuat data tetesan infus dari server
+          $("#tetesaninfus2").load("{{ url('bacainfus2') }}", function(responseText, textStatus, jqXHR) {
+            // Menggunakan callback function untuk menangani data setelah dimuat
+    
+            // Memeriksa apakah tetesan infus sama dengan 0 dan modal belum terbuka
+            if (responseText.trim() === "0" && !modalOpen) {
+              // Memunculkan modal jika kondisi terpenuhi
+              showModal("#ruangan2");
+            }
+          });
+        }, 2000);
+      });
+    </script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+    var audio = new Audio("audio/suara.mp3"); // Ganti dengan path ke file suara peringatan
+
+    // Fungsi untuk menampilkan modal peringatan
+    function showModal(modalId) {
+      // Memunculkan modal peringatan
+      $(modalId).modal("show");
+
+      // Memainkan suara peringatan
+      audio.play();
+
+      // Set flag modal terbuka menjadi true
+      modalOpen = true;
+
+      // Menutup modal setelah 1 menit
+      setTimeout(function() {
+        $(modalId).modal("hide");
+        modalOpen = false;
+        audio.pause();
+        audio.currentTime = 0;
+      }, 60000); // 60000 milidetik = 1 menit
+    }
+
+    // Set interval untuk memuat data setiap 2 detik
+    setInterval(function() {
+      // Memuat data volume dari server
+      $("#volumeinfus3").load("{{ url('bacavolume3') }}", function(responseText, textStatus, jqXHR) {
+        // Menggunakan callback function untuk menangani data setelah dimuat
+
+        // Memeriksa apakah volume sesuai dengan kondisi dan modal belum terbuka
+        if (
+          (responseText.trim() === "30" ||
+           responseText.trim() === "20" ||
+           responseText.trim() === "10" ||
+           responseText.trim() === "5" ||
+           responseText.trim() === "0") && !modalOpen
+        ) {
+          // Memunculkan modal jika kondisi terpenuhi
+          showModal("#ruangan33");
+        }
+      });
+
+      // Memuat data tetesan infus dari server
+      
+    }, 2000);
+  });
+</script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+  
+      // Fungsi untuk menampilkan modal peringatan
+      function showModal(modalId) {
+        // Memunculkan modal peringatan
+        $(modalId).modal("show");
+  
+        // Memainkan suara peringatan
+  
+        // Set flag modal terbuka menjadi true
+        modalOpen = true;
+  
+        // Menutup modal setelah 1 menit
+        setTimeout(function() {
+          $(modalId).modal("hide");
+          modalOpen = false;
+        }, 60000); // 60000 milidetik = 1 menit
+      }
+  
+      // Set interval untuk memuat data setiap 2 detik
+      setInterval(function() {
+        // Memuat data volume dari server
+  
+        // Memuat data tetesan infus dari server
+        $("#tetesaninfus3").load("{{ url('bacainfus3') }}", function(responseText, textStatus, jqXHR) {
+          // Menggunakan callback function untuk menangani data setelah dimuat
+  
+          // Memeriksa apakah tetesan infus sama dengan 0 dan modal belum terbuka
+          if (responseText.trim() === "0" && !modalOpen) {
+            // Memunculkan modal jika kondisi terpenuhi
+            showModal("#ruangan3");
+          }
+        });
+      }, 2000);
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var modalOpen = false; // Flag untuk melacak apakah modal sedang terbuka
+  
+      // Fungsi untuk menampilkan modal peringatan
+      function showModal() {
+        // Memunculkan modal peringatan
+        $("#basicModal1").modal("show");
+  
+        // Memainkan suara peringatan
+  
+        // Set flag modal terbuka menjadi true
+        modalOpen = true;
+  
+        // Menutup modal setelah 1 menit
+        setTimeout(function() {
+          $("#basicModal1").modal("hide");
+          modalOpen = false;
+          audio.pause();
+          audio.currentTime = 0;
+        }, 60000); // 60000 milidetik = 1 menit
+      }
+  
+      // Set interval untuk memuat data setiap 2 detik
+      setInterval(function() {
+        // Memuat data volume dari server
+        $("#volume2").load("{{ url('bacavolume2') }}", function(responseText, textStatus, jqXHR) {
+          // Menggunakan callback function untuk menangani data setelah dimuat
+  
           // Memeriksa apakah volume sama dengan 100 dan modal belum terbuka
-          if (responseText.trim() === "100" && !modalOpen) {
+          if (responseText.trim() === "30" && !modalOpen) {
             showModal();
           }
         });
   
         // Memuat data tetesan infus dari server
-        $("#tetesaninfus").load("{{ url('bacainfus') }}");
+        $("#tetesaninfus2").load("{{ url('bacainfus2') }}");
       }, 2000);
   
       // Menangani tombol "Tutup" pada modal
@@ -341,30 +611,9 @@ Swal.fire({
     });
   </script>
   
-  
 
 
-
-
-
-  <script type="text/javascript">
-
-  
-    $(document).ready(function() {
-      setInterval(function()  {
-        $("#volume2").load("{{ url('bacavolume2') }}");
-        $("#tetesaninfus2").load("{{ url('bacainfus2') }}");
-
-      }, 2000);
-    });
-
-    
-    function tangkapPerubahanNilai(nilai) {
-    console.log("Nilai yang berubah: " + nilai);
-   
-    }
-  </script>
-
+ 
   <script type="text/javascript">
     $(document).ready(function() {
         var nilaiVolume = $("#volume2").text();
@@ -385,6 +634,17 @@ Swal.fire({
     }, 2000);
 
   });
+</script>
+
+
+
+<script>
+  let play = document.getElementById("play");
+      function playMusic() {
+       let audio = new Audio("audio/suara.mp3");
+       audio.play()
+    }
+    play.addEventListener("click", playMusic);
 </script>
 
 @endsection
