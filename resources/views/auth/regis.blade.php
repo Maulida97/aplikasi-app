@@ -111,7 +111,7 @@
                                             @enderror
                                             {{-- <div class="invalid-feedback">Please, enter your name!</div> --}}
                                         </div>
-                                        <div class="col-12">
+                                        {{-- <div class="col-12">
                                             <label for="yourUsername" class="form-label">NIP</label>
                                             <input type="number" name="nip" placeholder="NIP"
                                                 class="form-control" id="yourNIP"
@@ -121,8 +121,7 @@
                                                     {{ $message }}
                                                 </div>
                                             @enderror
-                                            {{-- <div class="invalid-feedback">Please, enter your name!</div> --}}
-                                        </div>
+                                        </div> --}}
 
 
                                         <div class="col-12">

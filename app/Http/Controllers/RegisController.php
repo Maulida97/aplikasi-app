@@ -19,7 +19,6 @@ class RegisController extends Controller
             // 'user_name' => 'min:6',
             'name' => 'required|min:3|max:255',
             'username' => 'required|unique:users',
-            'nip' => 'required|unique:users',
             'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
         // dd($request);
 

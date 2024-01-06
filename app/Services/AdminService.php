@@ -45,7 +45,6 @@ class AdminService
             $inputUser['username'] = $params['username'];
             $inputUser['user_type'] = 'admin';
             $inputUser['name'] = $params['name'];
-            $inputUser['nip'] = $params['nip'];
             $inputUser['gender'] = $params['gender'];
             $inputUser['password'] = Hash::make($params['password']);
             // if(isset($params['image_url'])){
