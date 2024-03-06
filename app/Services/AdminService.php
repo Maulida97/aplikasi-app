@@ -29,7 +29,7 @@ class AdminService
             $data = Admin::paginate(10);
         }
 
-      
+
         Paginator::useBootstrap();
         return $data;
 
@@ -49,7 +49,7 @@ class AdminService
             $inputUser['password'] = Hash::make($params['password']);
             // if(isset($params['image_url'])){
             //     $inputUser['image_url'] = $params['image_url'];
-            // }   
+            // }
             if (isset($params['id'])) {
                 // dd($params['id']);
                 // dd($params);

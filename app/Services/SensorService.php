@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use DB;
-use App\Models\Sensor;
+use App\Models\sensor;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +14,7 @@ class SensorService
 {
     public static function sensortList(Request $request)
     {
-            $data = Sensor::paginate(10);
+            $data = sensor::paginate(10);
             Paginator::useBootstrap();
             return $data;
 
@@ -38,7 +38,7 @@ class SensorService
 
     public static function getDataSensor($id)
     {
-        $data = Sensor::find($id);
+        $data = sensor::find($id);
         return $data;
 
     }
@@ -62,11 +62,11 @@ class SensorService
 
             if (isset($params['id'])) {
 
-                $sensor = Sensor::find($params['id']);
+                $sensor = sensor::find($params['id']);
                 $sensor->update($inputsensor);
 
             }else{
-                $sensor = Sensor::create($inputsensor);
+                $sensor = sensor::create($inputsensor);
             }
             DB::commit();
             return $sensor;
