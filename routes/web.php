@@ -30,7 +30,7 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
 
     // SensorEvent::dispatch();
-    return view('welcome');
+    return view('auth.login');
 });
 
 
