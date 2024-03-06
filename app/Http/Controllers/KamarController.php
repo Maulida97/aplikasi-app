@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Kamar;
+use App\Models\kamar;
 use Illuminate\Http\Request;
 use App\Services\KamarService;
 
@@ -19,8 +19,8 @@ class KamarController extends Controller
 
     public function list(Request $request)
     {
-        
-        $kamar = Kamar::all();
+
+        $kamar = kamar::all();
         // dd($kamar);
         $data = KamarService::KamarList($request);
         return view('admin.kamar.index',compact('data','kamar'));
@@ -38,7 +38,7 @@ class KamarController extends Controller
     {
         $params = $request->all();
 
-        
+
         $data = KamarService::add($params);
         if(!isset($request['id'])){
             return redirect('/kamar')->with('success', 'Berhasil menambahkan data');
