@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Kamar;
-use App\Models\Pasien;
-use App\Models\Sensor;
+use App\Models\kamar;
+use App\Models\pasien;
+use App\Models\sensor;
 use App\Services\KamarService;
 use Illuminate\Http\Request;
 use App\Services\PasienService;
@@ -16,15 +16,15 @@ class PasienController extends Controller
         $this->middleware('auth');
     }
 
-   
+
     public function list(Request $request)
     {
-        $kamar = Kamar::all();
+        $kamar = kamar::all();
         // dd($kamar);
 
-        $sensor = Sensor::all();
+        $sensor = sensor::all();
         // dd($sensor);
-
+        //sdsadasdas
         // $pasien = Pasien::all();
         $data = PasienService::PasienList($request);
     // dd($data);
@@ -84,7 +84,7 @@ class PasienController extends Controller
         //         'jenis_infus' => 'required',
         //     ]);
         //     $params = $validated;
-        // }        
+        // }
         // dd($params);
         $data = PasienService::add($params);
                 //  dd($params);
