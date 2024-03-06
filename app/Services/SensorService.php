@@ -25,10 +25,11 @@ class SensorService
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
-            $data = Sensor::paginate(10);
+            // $data = Sensor::paginate(10);
+            // ssss
         }
 
-      
+
         Paginator::useBootstrap();
         return $data;
 
@@ -44,7 +45,7 @@ class SensorService
 
 
 
-    
+
 
     public static function add($params){
 
