@@ -4,9 +4,9 @@ namespace App\Services;
 
 use DB;
 // use App\Models\Penyakit;
-use App\Models\Bangsal;
-use App\Models\Admin;
-use App\Models\Alat;
+use App\Models\bangsal;
+use App\Models\admin;
+use App\Models\alat;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
@@ -21,15 +21,15 @@ class AlatService
         if($request->has('keywords')){
            // mengambil data dari table pegawai
     	// $pegawai = DB::table('pegawai')->get();
- 
+
     	// // mengirim data pegawai ke view index
     	// return view('index',['pegawai' => $pegawai]);
- 
+
         }else{
-            $data = Alat::paginate(10);
+            $data = alat::paginate(10);
         }
 
-        
+
         Paginator::useBootstrap();
         return $data;
     }
@@ -45,11 +45,11 @@ class AlatService
 
             if (isset($params['id'])) {
 
-                $alat = Alat::find($params['id']);
+                $alat = alat::find($params['id']);
                 $alat->update($inputAlat);
 
             }else{
-                $alat = Alat::create($inputAlat);
+                $alat = alat::create($inputAlat);
             }
             DB::commit();
             return $alat;
@@ -63,12 +63,12 @@ class AlatService
 
     public static function deleteAlat($id)
     {
-        $data = Alat::destroy($id);
+        $data = alat::destroy($id);
         if($data){
             return "Deleted";
         }else{
             return "Failed";
         }
     }
-   
+
 }

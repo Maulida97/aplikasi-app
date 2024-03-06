@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use DB;
-use App\Models\User;
-use App\Models\Admin;
+use App\Models\user;
+use App\Models\admin;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +16,7 @@ class AdminService
     public static function AdminList(Request $request)
     {
         if($request->has('keywords')){
-            $data = Admin::leftJoin('users', 'users.id', 'admins.user_id')->select('users.*', 'admins.*')
+            $data = admin::leftJoin('users', 'users.id', 'admins.user_id')->select('users.*', 'admins.*')
             ->where(function ($row) use ($request){
                     $row->where(function ($query) use ($request) {
                         $query->where('users.name', 'like', '%' . $request->keywords . '%')
@@ -26,7 +26,7 @@ class AdminService
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
-            $data = Admin::paginate(10);
+            $data = admin::paginate(10);
         }
 
 
@@ -57,13 +57,13 @@ class AdminService
                 // dd($inputUser);
                 // $petugas->update([]);
                 // $user = $petugas->user()->update($inputUser);
-                $user =  User::with('admin')->find($params['id']);
+                $user =  user::with('admin')->find($params['id']);
                 // dd($user);
                 // dd($inputUser);
                 $user->update($inputUser);
                 $petugas = $user->admin()->update([]);
             }else{
-                $data = User::create($inputUser);
+                $data = user::create($inputUser);
                 $admin = $data->admin()->create([]);
             }
             DB::commit();
@@ -86,7 +86,7 @@ class AdminService
 
     public static function deleteAdmin($id)
     {
-        $data = Admin::with('user')->find($id);
+        $data = admin::with('user')->find($id);
         $data->delete();
         if($data){
             return "Deleted";

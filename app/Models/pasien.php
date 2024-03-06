@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pasien extends Model
+class pasien extends Model
 {
     use HasFactory;
-    protected $guarded = [];  
+    protected $guarded = [];
 
 
     public function sensor()
@@ -16,7 +16,7 @@ class Pasien extends Model
         return $this->belongsTo(sensor::class);
     }
 
-    
+
     public function kamar()
     {
         return $this->belongsTo(kamar::class);

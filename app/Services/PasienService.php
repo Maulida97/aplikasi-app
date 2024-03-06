@@ -3,13 +3,13 @@
 namespace App\Services;
 
 use DB;
-use App\Models\User;
-use App\Models\Admin;
-use App\Models\Kamar;
+use App\Models\user;
+use App\Models\admin;
+use App\Models\kamar;
 // use App\Models\Pasien;
 // use App\Models\kamar;
-use App\Models\Pasien;
-use App\Models\Perawat;
+use App\Models\pasien;
+use App\Models\perawat;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,13 +31,13 @@ class PasienService
 // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
 // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
         }else{
-            $data = Pasien::paginate(10);
+            $data = pasien::paginate(10);
 
             // $data = pasien::with('kamar')->get();
             // $data = kamar::with('pasien')->paginate(10);
         }
 
-      
+
         Paginator::useBootstrap();
         return $data;
 
@@ -68,7 +68,7 @@ class PasienService
 
                 // $pasien =  kamar::with('pasien')->find($params['id']);
 
-                $pasien = Pasien::find($params['id']);
+                $pasien = pasien::find($params['id']);
                 // dd($inputpasien);
 
                 $pasien->update($inputpasien);
@@ -76,7 +76,7 @@ class PasienService
 
             }else{
 // dd('c');
-                $pasien = Pasien::create($inputpasien);
+                $pasien = pasien::create($inputpasien);
                 //  dd($inputpasien);
 
             }
@@ -92,12 +92,12 @@ class PasienService
 
     public static function deletePasien($id)
     {
-        $data = Pasien::destroy($id);
+        $data = pasien::destroy($id);
         if($data){
             return "Deleted";
         }else{
             return "Failed";
         }
     }
-   
+
 }

@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use DB;
-use App\Models\Kamar;
-use App\Models\Admin;
+use App\Models\kamar;
+use App\Models\admin;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,15 +18,15 @@ class KamarService
         if($request->has('keywords')){
            // mengambil data dari table pegawai
     	// $pegawai = DB::table('pegawai')->get();
- 
+
     	// // mengirim data pegawai ke view index
     	// return view('index',['pegawai' => $pegawai]);
- 
+
         }else{
-            $data = Kamar::paginate(10);
+            $data = kamar::paginate(10);
         }
 
-        
+
         Paginator::useBootstrap();
         return $data;
     }
@@ -40,11 +40,11 @@ class KamarService
 
             if (isset($params['id'])) {
 
-                $kamar = Kamar::find($params['id']);
+                $kamar = kamar::find($params['id']);
                 $kamar->update($inputkamar);
 
             }else{
-                $kamar = Kamar::create($inputkamar);
+                $kamar = kamar::create($inputkamar);
             }
             DB::commit();
             return $kamar;
@@ -55,16 +55,16 @@ class KamarService
 
         // }
     }
-        
+
 
     public static function deleteKamar($id)
     {
-        $data = Kamar::destroy($id);
+        $data = kamar::destroy($id);
         if($data){
             return "Deleted";
         }else{
             return "Failed";
         }
     }
-   
+
 }

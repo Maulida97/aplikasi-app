@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
-use App\Models\User;
+use App\Models\user;
 use App\Models\admin;
-use App\Models\Perawat;
+use App\Models\perawat;
 
 
 
@@ -14,7 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class user extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -57,7 +57,7 @@ class User extends Authenticatable
     }
     public function perawat()
     {
-        return $this->hasOne(Perawat::class,'user_id');
+        return $this->hasOne(perawat::class,'user_id');
     }
 
 
