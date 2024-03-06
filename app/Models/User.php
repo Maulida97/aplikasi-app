@@ -2,7 +2,7 @@
 
 namespace App\Models;
 use App\Models\User;
-use App\Models\Admin;
+use App\Models\admin;
 use App\Models\Perawat;
 
 
@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function admin()
     {
-        return $this->hasOne(Admin::class,'user_id');
+        return $this->hasOne(admin::class,'user_id');
     }
     public function perawat()
     {
