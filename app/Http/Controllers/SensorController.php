@@ -36,7 +36,6 @@ class SensorController extends Controller
                 "updated_at" => $tgl,
             ]);
 
-            return event(new notifEvent($nilaiTetesan, $nilaiBerat));
     }
     public function simpan2($nilaiTetesan2, $nilaiBerat2)
     {
