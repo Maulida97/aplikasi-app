@@ -22,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::post('/sensorlist/{id}', [SensorService::class, 'add']);
+Route::post('/sensorlist', [SensorService::class, 'add']);
