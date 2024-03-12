@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Kamar;
+use App\Models\kamar;
 use App\Models\Pasien;
-use App\Models\Sensor;
+use App\Models\sensor;
 use App\Events\notifEvent;
 use App\Events\SensorEvent;
 use App\Models\Sensorinfus;
@@ -29,7 +29,7 @@ class SensorController extends Controller
     public function simpan($nilaiTetesan, $nilaiBerat)
     {
         $tgl = Carbon::now();
-            $data = Sensor::where('id', '1')->update([
+            $data = sensor::where('id', '1')->update([
                 "volume_infus" => $nilaiBerat,
                 "tetesan_infus" => $nilaiTetesan,
                 "created_at" => $tgl,
@@ -42,7 +42,7 @@ class SensorController extends Controller
         // $data = DB::table('sensors');
         $tgl = Carbon::now();
 
-            $data = Sensor::where('id', '2')->update([
+            $data = sensor::where('id', '2')->update([
                 "volume_infus" => $nilaiBerat2,
                 "tetesan_infus" => $nilaiTetesan2,
                 "created_at" => $tgl,
@@ -56,7 +56,7 @@ class SensorController extends Controller
         // $data = DB::table('sensors');
         $tgl = Carbon::now();
 
-            $data = Sensor::where('id', '3')->update([
+            $data = sensor::where('id', '3')->update([
                 "volume_infus" => $nilaiBerat3,
                 "tetesan_infus" => $nilaiTetesan3,
                 "created_at" => $tgl,
@@ -68,16 +68,16 @@ class SensorController extends Controller
 
 
     public function tampilkanDataSensor($deviceID) {
-        $dataSensor = Sensor::where('device_id', $deviceID)->get();
+        $dataSensor = sensor::where('device_id', $deviceID)->get();
         return view('admin.dashboard.bacavolume')->with('dataSensor', $dataSensor);
     }
     // Infus 1
     public function bacavolume(){
-        $sensor = Sensor::where('id', '1')->get();
+        $sensor = sensor::where('id', '1')->get();
         return view('admin.dashboard.bacavolume', ['nilaisensor'=> $sensor]);
     }
     public function bacainfus(){
-        $sensor = Sensor::where('id', '1')->get();
+        $sensor = sensor::where('id', '1')->get();
         return view('admin.dashboard.bacatetesan', ['nilaisensor'=> $sensor]);
     }
     // public function bacatetesan(){
@@ -87,21 +87,21 @@ class SensorController extends Controller
 
         // Infus 2
     public function bacavolume2(){
-        $sensor = Sensor::where('id', '2')->get();
+        $sensor = sensor::where('id', '2')->get();
         return view('admin.dashboard.bacavolume2', ['nilaisensor2'=> $sensor]);
     }
     public function bacainfus2(){
-        $sensor = Sensor::where('id', '2')->get();
+        $sensor = sensor::where('id', '2')->get();
         return view('admin.dashboard.bacatetesan2', ['nilaisensor2'=> $sensor]);
     }
 
     // Infus 3
     public function bacavolume3(){
-        $sensor = Sensor::where('id', '3')->get();
+        $sensor = sensor::where('id', '3')->get();
         return view('admin.dashboard.bacavolume3', ['nilaisensor3'=> $sensor]);
     }
     public function bacainfus3(){
-        $sensor = Sensor::where('id', '3')->get();
+        $sensor = sensor::where('id', '3')->get();
         return view('admin.dashboard.bacatetesan3', ['nilaisensor3'=> $sensor]);
     }
     // public function simpan($nilaivolume, $nilaitetesan){
