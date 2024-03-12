@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Services\SensorService;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SensorController;
 
@@ -21,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::get('/sensor', [SensorController::class, 'index']);
+Route::post('/sensor', [SensorService::class, 'add']);
