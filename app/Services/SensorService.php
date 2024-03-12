@@ -48,7 +48,7 @@ class SensorService
 
 
 
-    public static function add($params){
+    public static function add(params $params){
 
         DB::beginTransaction();
         try {
