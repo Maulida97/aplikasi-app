@@ -18,22 +18,6 @@ class SensorService
             Paginator::useBootstrap();
             return $data;
 
-//         if($request->has('keywords')){
-//             //  $data = Perawat::leftJoin('users', 'users.id', 'petugas.user_id')->select('users.*', 'petugas.*')
-//             // ->where(function ($row) use ($request){
-//             //         $row->where(function ($query) use ($request) {
-//             //             $query->where('users.name', 'like', '%' . $request->keywords . '%')
-//             //                 ->orWhere('users.nip', 'like', '%' . $request->keywords . '%');
-//             //         });
-//             // })->paginate(5);
-// // SELECT `users`.*, `admins*` FROM `admins` LEFT JOIN `users` ON `users`.`id` = `admins`.`user_id`
-// // WHERE ((`users`.`name` LIKE % $request % OR `users`.`nip` LIKE % $request %) )
-//         }else{
-
-//         }
-//         Paginator::useBootstrap();
-//         return $data;
-
     }
 
     public static function getDataSensor($id)
@@ -44,10 +28,6 @@ class SensorService
     }
 
 
-
-
-
-
     public static function add($params){
 
         DB::beginTransaction();
@@ -56,7 +36,6 @@ class SensorService
             $inputsensor['nama_sensor'] = $params['nama_sensor'];
             $inputsensor['tetesan_infus'] = $params['tetesan_infus'];
             $inputsensor['volume_infus'] = $params['volume_infus'];
-            // $inputsensor['device_id'] = $params['device_id'];
 
 
 
