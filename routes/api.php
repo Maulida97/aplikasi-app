@@ -23,4 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/sensorlist', [SensorService::class, 'add']);
+
+Route::get('/simpan/{nilaiBerat}/{nilaiTetesan}', [SensorController::class, 'simpan']);
+Route::get('/simpan2/{nilaiBerat2}/{nilaiTetesan2}', [SensorController::class, 'simpan2']);
 Route::get('/simpan3/{nilaiBerat3}/{nilaiTetesan3}', [SensorController::class, 'simpan3']);
