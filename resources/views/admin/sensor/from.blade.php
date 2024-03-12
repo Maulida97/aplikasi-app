@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
               <form action="{{ route('sensor.save') }}" method="post" enctype="multipart/form-data">
-                  @csrf
+                  {{-- @csrf --}}
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Nama Sensor</label>
                   <input type="text" name="nama_sensor" class="form-control" id="inputNanme4" required>
@@ -27,15 +27,15 @@
                   <label for="inputNanme4" class="form-label">Device Id</label>
                   <input type="text" name="device_id" class="form-control" id="inputNanme4">
                 </div> --}}
-                
+
                 <div class="text-center mt-4">
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                   {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                 </div>
               </form><!-- Vertical Form -->
-              
-            </div>  
+
+            </div>
             {{-- <div class="modal-footer">
               <button type="reset" class="btn btn-secondary">Reset</button>
               <button type="submit" class="btn btn-primary">Tambah Data</button>
@@ -51,7 +51,7 @@
 
 
 
-@foreach ($datasensor as $key => $val)         
+@foreach ($datasensor as $key => $val)
 {{-- <div class="card"> --}}
     <div class="card-body">
       <!-- Vertically centered Modal -->
@@ -65,7 +65,7 @@
             <div class="modal-body">
               <form class="row g-3" action="{{ route('sensor.save') }}" method="post" enctype="multipart/form-data">
                 <input type="text" name="id" value="{{ $val->id }}">
-                  @csrf
+                  {{-- @csrf --}}
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Nama Kamar</label>
                   <input type="text" name="nama_sensor" class="form-control" id="inputNanme4" value="{{ $val->nama_sensor }}" required>
@@ -88,12 +88,12 @@
                   {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                 </div>
               </form><!-- Vertical Form -->
-              
-            </div>  
+
+            </div>
           </div>
         </div>
       </div><!-- End Vertically centered Modal-->
 
     </div>
 {{-- </div> --}}
-@endforeach       
+@endforeach

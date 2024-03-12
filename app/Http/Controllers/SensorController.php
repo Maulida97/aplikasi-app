@@ -42,28 +42,28 @@ class SensorController extends Controller
     {
         // $data = DB::table('sensors');
         $tgl = Carbon::now();
-        
+
             $data = Sensor::where('id', '2')->update([
                 "volume_infus" => $nilaiBerat2,
                 "tetesan_infus" => $nilaiTetesan2,
                 "created_at" => $tgl,
                 "updated_at" => $tgl,
             ]);
-   
+
     }
 
     public function simpan3($nilaiTetesan3, $nilaiBerat3)
     {
         // $data = DB::table('sensors');
         $tgl = Carbon::now();
-        
+
             $data = Sensor::where('id', '3')->update([
                 "volume_infus" => $nilaiBerat3,
                 "tetesan_infus" => $nilaiTetesan3,
                 "created_at" => $tgl,
                 "updated_at" => $tgl,
             ]);
-   
+
     }
 
 
@@ -111,35 +111,6 @@ class SensorController extends Controller
     //         'laju_tetesan' => request()->nilaitetesan
     // ]);
     // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function listsensor(Request $request)
     {
         $datasensor = SensorService::sensortList($request);
