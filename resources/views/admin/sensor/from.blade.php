@@ -29,8 +29,8 @@
                 </div> --}}
 
                 <div class="text-center mt-4">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-primary">Submit</button>
+                  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
                   {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                 </div>
               </form><!-- Vertical Form -->
@@ -83,8 +83,8 @@
                   <input type="text" name="device_id" value="{{ $val->device_id }}" class="form-control" id="inputNanme4">
                 </div> --}}
                 <div class="text-center mt-4">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-primary">Submit</button>
+                  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
                   {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                 </div>
               </form><!-- Vertical Form -->

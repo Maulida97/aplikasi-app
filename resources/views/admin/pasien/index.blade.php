@@ -36,9 +36,9 @@
                     <th scope="col">Jenis Infus</th>
                     <th scope="col">Sensor</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" 
+                    <button type="button" class="btn btn-outline-primary mb-5" data-bs-toggle="modal"
                             data-bs-target="#modaltambahpasien">Tambah Pasien</button>
-                    
+
                   </tr>
                 </thead>
                 <tbody>
@@ -75,7 +75,7 @@
 
           </div>
 
-          
+
 
         </div>
 

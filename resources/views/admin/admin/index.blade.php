@@ -33,8 +33,8 @@
                     <th scope="col">User Name</th>
                     <th scope="col">NIP</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahadmin">Tambah Admin</button>
-                    
+                    <button type="button" class="btn btn-outline-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahadmin">Tambah Admin</button>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@
                           <a href="#" class="btn btn-danger delete" data-id="{{ $val->id }}">Delete</a>
                             {{-- <a href="{{ route('admin.delete', ['id' => $val->id]) }}"
                             class="btn btn-danger hapus">Delete</a> --}}
-  
+
                     </td>
                   </tr>
                   @endforeach
@@ -67,7 +67,7 @@
 
           </div>
 
-          
+
 
         </div>
 

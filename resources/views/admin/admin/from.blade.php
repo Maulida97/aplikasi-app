@@ -13,7 +13,7 @@
                             @csrf
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name" class="form-control"  
+                            <input type="text" name="name" class="form-control"
                                     autocomplete="off" @error('name') is-invalid @enderror required>
                           </div>
                           @error('name')
@@ -25,7 +25,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username" class="form-control"  
+                            <input type="text" name="username" class="form-control"
                                     autocomplete="off" @error('username') is-invalid @enderror required>
                           </div>
                            @error('username')
@@ -36,7 +36,7 @@
 
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number"  name="nip" class="form-control"  
+                            <input type="number"  name="nip" class="form-control"
                                     autocomplete="off" @error('nip') is-invalid @enderror required>
                           </div>
                           @error('nip')
@@ -44,7 +44,7 @@
                                   {{ $message }}
                               </div>
                           @enderror
-                          
+
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
                               <select name="gender"  class="form-select" required >
@@ -57,7 +57,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control"  
+                            <input type="password" name="password" class="form-control"
                                     autocomplete="off" @error('password') is-invalid @enderror required>
                           </div>
                            @error('password')
@@ -68,7 +68,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password Confirmation</label>
-                            <input type="password" name="password_confirmation" class="form-control"  
+                            <input type="password" name="password_confirmation" class="form-control"
                                     autocomplete="off" @error('password_confirmation') is-invalid @enderror required>
                           </div>
                            @error('password_confirmation')
@@ -78,13 +78,13 @@
                           @enderror
 
                           <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
                             {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                           </div>
                         </form><!-- Vertical Form -->
-                        
-                      </div>  
+
+                      </div>
                       {{-- <div class="modal-footer">
                         <button type="reset" class="btn btn-secondary">Reset</button>
                         <button type="submit" class="btn btn-primary">Tambah Data</button>
@@ -99,7 +99,7 @@
 
 
 
-     @foreach ($data as $key => $val)         
+     @foreach ($data as $key => $val)
               <div class="card-body">
                 <!-- Vertically centered Modal -->
                 <div class="modal fade" id="modaladminedit{{ $val->id }}" tabindex="-1">
@@ -116,7 +116,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Nama</label>
-                            <input type="text" name="name"  class="form-control"  
+                            <input type="text" name="name"  class="form-control"
                                     @error('name') is-invalid @enderror value="{{ $val->user->name }}" required>
                           </div>
                            @error('name')
@@ -127,7 +127,7 @@
 
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">User Name</label>
-                            <input type="text" name="username"  class="form-control"  
+                            <input type="text" name="username"  class="form-control"
                                   @error('username') is-invalid @enderror value="{{ $val->user->username }}" required>
                           </div>
                           @error('username')
@@ -138,7 +138,7 @@
 
                            <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">NIP</label>
-                            <input type="number" name="nip"  class="form-control"  
+                            <input type="number" name="nip"  class="form-control"
                                    @error('nip') is-invalid @enderror value="{{ $val->user->nip }}" required>
                           </div>
                           @error('nip')
@@ -147,7 +147,7 @@
                             </div>
                              @enderror
 
-                          
+
                            <div class="col-12 mt-3">
                               <label for="inputState" class="form-label">Jenis Kelamin</label>
                               <select name="gender"  class="form-select">
@@ -156,7 +156,7 @@
                                 <option value="wanita">Wanita</option>
                               </select>
                             </div>
-                            
+
                           <div class="col-12 mt-3">
                             <label for="inputNanme4" class="form-label">Password</label>
                             <input type="password" name="password"  class="form-control"  required>
@@ -177,26 +177,18 @@
                             </div>
                              @enderror
                           <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
                             {{-- <button type="reset" class="btn btn-secondary">Reset</button> --}}
                           </div>
                         </form><!-- Vertical Form -->
-                        
-                      </div>  
-                      
+
+                      </div>
+
                     </div>
                   </div>
                 </div><!-- End Vertically centered Modal-->
 
               </div>
-      @endforeach       
+      @endforeach
 
-@section('script')
-        {{-- <script>
-           @isset($data)
-            var a = $('#gender').val('{{ $data['user']['gender'] }}').toString();
-            console.log(a);
-            @endisset
-        </script> --}}
-@endsection

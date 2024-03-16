@@ -31,8 +31,8 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama Kamar</th>
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahkamar">Tambah Kamar</button>
-                    
+                    <button type="button" class="btn btn-outline-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahkamar">Tambah Kamar</button>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                   <tr>
                     <th scope="row">{{ $key + $data->firstItem() }}</th>
                     <td>{{ $val->nama_kamar}}</td>
-          
+
                     <td>
                            {{-- <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailadmin{{ $val->id }}">Detail</a> --}}
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalkamaredit{{ $val->id }}">Edit</a>
@@ -48,7 +48,7 @@
                           <a href="#" class="btn btn-danger deletekamar" data-id="{{ $val->id }}">Delete</a>
                             {{-- <a href="{{ route('admin.delete', ['id' => $val->id]) }}"
                             class="btn btn-danger hapus">Delete</a> --}}
-  
+
                     </td>
                   </tr>
                   @endforeach
@@ -64,7 +64,7 @@
 
           </div>
 
-          
+
 
         </div>
 

@@ -34,8 +34,8 @@
                     <th scope="col">Tetesan Infus</th>
                     {{-- <th scope="col">Device Id</th> --}}
                     <th scope="col">Aksi</th>
-                    <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahsensor">Tambah Sensor</button>
-                    
+                    <button type="button" class="btn btn-outline-primary mb-5" data-bs-toggle="modal" data-bs-target="#modaltambahsensor">Tambah Sensor</button>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@
                     <td>{{ $val->volume_infus}}</td>
                     <td>{{ $val->tetesan_infus}}</td>
                     {{-- <td>{{ $val->device_id}}</td> --}}
-          
+
                     <td>
                            {{-- <a href="" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modaldetailadmin{{ $val->id }}">Detail</a> --}}
                           <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalsensoredit{{ $val->id }}">Edit</a>
@@ -54,7 +54,7 @@
                           <a href="#" class="btn btn-danger deletesensor" data-id="{{ $val->id }}">Delete</a>
                             {{-- <a href="{{ route('admin.delete', ['id' => $val->id]) }}"
                             class="btn btn-danger hapus">Delete</a> --}}
-  
+
                     </td>
                   </tr>
                   @endforeach
@@ -70,7 +70,7 @@
 
           </div>
 
-          
+
 
         </div>
 
