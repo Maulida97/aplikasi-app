@@ -9,7 +9,7 @@
             <p style="text-align: center; font-size: 26px; font-weight: bold; color: #012970">Peringatan</p>
             <br>
             <p style="text-align: center; font-size: 20px; font-weight: bold; color: #012970">
-            
+
                 Infus Ruangan 1 Akan Habis! </p>
 
           </div>
@@ -31,7 +31,7 @@
           <p style="text-align: center; font-size: 26px; font-weight: bold; color: #012970">Peringatan</p>
           <br>
           <p style="text-align: center; font-size: 20px; font-weight: bold; color: #012970">
-          
+
               Infus Ruangan 1 Tidak Menetes! </p>
 
         </div>
@@ -57,7 +57,7 @@
           <p style="text-align: center; font-size: 26px; font-weight: bold; color: #012970">Peringatan</p>
           <br>
           <p style="text-align: center; font-size: 20px; font-weight: bold; color: #012970">
-          
+
               Infus Ruangan 2 Akan Habis! </p>
 
         </div>
@@ -79,7 +79,7 @@
         <p style="text-align: center; font-size: 26px; font-weight: bold; color: #012970">Peringatan</p>
         <br>
         <p style="text-align: center; font-size: 20px; font-weight: bold; color: #012970">
-        
+
             Infus Ruangan 2 Tidak Menetes! </p>
 
       </div>
@@ -104,7 +104,7 @@
           <p style="text-align: center; font-size: 26px; font-weight: bold; color: #012970">Peringatan</p>
           <br>
           <p style="text-align: center; font-size: 20px; font-weight: bold; color: #012970">
-          
+
               Infus Ruangan 3 Akan Habis! </p>
 
         </div>
@@ -126,7 +126,7 @@
         <p style="text-align: center; font-size: 26px; font-weight: bold; color: #012970">Peringatan</p>
         <br>
         <p style="text-align: center; font-size: 20px; font-weight: bold; color: #012970">
-        
+
             Infus Ruangan 3 Tidak Menetes! </p>
 
       </div>
@@ -137,5 +137,8 @@
   </div>
 </div>
 </div>
+
+
+
 
 

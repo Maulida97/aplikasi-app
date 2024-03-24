@@ -10,17 +10,17 @@
              </a>
          </li><!-- End Dashboard Nav -->
 
-       
 
-         <li class="nav-heading">Pages</li>
+
+         {{-- <li class="nav-heading">Pages</li>
 
            <li class="nav-item">
              <a class="nav-link collapsed {{ checkRouteActive('pasien') }}" href="{{url('pasien')}}">
                  <i class="bi bi-person" ></i>
                  <span>Pasien</span>
              </a>
-         </li><!-- End Profile Page Nav -->
-{{-- 
+         </li><!-- End Profile Page Nav --> --}}
+{{--
          <li class="nav-item collapsed">
              <a class="nav-link collapsed {{checkRouteActive('perawat')}}" href="{{url('perawat')}}">
                  <i class="bi bi-person" ></i>
@@ -28,15 +28,15 @@
              </a>
          </li><!-- End Profile Page Nav --> --}}
 
-          <li class="nav-item collapsed">
+          {{-- <li class="nav-item collapsed">
              <a class="nav-link collapsed {{checkRouteActive('admin')}}" href="{{url('admin')}}">
                  <i class="bi bi-person" ></i>
                  <span>Admin</span>
              </a>
-         </li><!-- End Profile Page Nav -->
+         </li><!-- End Profile Page Nav --> --}}
 
          {{-- <li class="nav-heading">Master Data</li> --}}
-         <li class="nav-heading">_____________________________________</li>
+         {{-- <li class="nav-heading">_____________________________________</li> --}}
 
 
          {{-- <li class="nav-item collapsed">
@@ -59,7 +59,7 @@
                   <span>Penyakit</span>
               </a>
           </li><!-- End Profile Page Nav --> --}}
-          <li class="nav-item collapsed">
+          {{-- <li class="nav-item collapsed">
             <a class="nav-link collapsed {{checkRouteActive('kamar')}}" href="{{url('kamar')}}">
                 <i class="ri-database-2-fill" ></i>
                 <span>Kamar</span>
@@ -70,7 +70,8 @@
                   <i class="ri-database-2-fill" ></i>
                   <span>Sensor</span>
               </a>
-          </li><!-- End Profile Page Nav -->
+          </li> --}}
+          <!-- End Profile Page Nav -->
 
           {{-- <li class="nav-item collapsed">
               <a class="nav-link collapsed {{checkRouteActive('alat')}}" href="{{url('alat')}}">
@@ -79,7 +80,7 @@
               </a>
           </li><!-- End Profile Page Nav --> --}}
 
-          
+
 
           {{-- <li class="nav-item collapsed">
               <a class="nav-link collapsed {{checkRouteActive('jamDinas')}}" href="{{url('jamDinas')}}">
