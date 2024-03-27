@@ -350,114 +350,107 @@ Swal.fire({
 
 
 
-
   <script type="text/javascript">
-$(document).ready(function() {
-  // Buat variabel global untuk menyimpan status notifikasi
-  var lastNotification = {};
+    $(document).ready(function() {
+      // Buat variabel global untuk menyimpan status notifikasi
+      var lastNotification = {};
 
-  // Buat variabel global untuk status modal
-  var modalShown = false;
+      // Buat variabel global untuk status modal
+      var modalShown = false;
 
-  // Fungsi untuk menampilkan modal
-  function showModal() {
-    $("#notificationModal").modal("show");
-    modalShown = true;
-  }
-
-  // Fungsi untuk menampilkan modal setelah interval waktu tertentu (1 menit = 60000 milidetik)
-  function showIntervalModal() {
-    showModal();
-    setTimeout(showIntervalModal, 60000); // Tampilkan modal lagi setelah 1 menit
-  }
-
-  // Panggil fungsi untuk menampilkan modal pertama kali
-  showIntervalModal();
-
-  setInterval(function() {
-    // Ruangan 1
-    $("#volume").load("{{ url('bacavolume') }}", function(response, status, xhr) {
-      if (status == "success") {
-        checkAndNotify(response, "Ruangan 1");
+      // Fungsi untuk menampilkan modal
+      function showModal() {
+        // Periksa apakah ada notifikasi yang perlu ditampilkan
+        var notificationsExist = $("#notificationList").children().length > 0;
+        if (notificationsExist) {
+          $("#notificationModal").modal("show");
+          modalShown = true;
+        }
       }
+
+      setInterval(function() {
+        // Ruangan 1
+        $("#volume").load("{{ url('bacavolume') }}", function(response, status, xhr) {
+          if (status == "success") {
+            checkAndNotify(response, "Ruangan 1");
+          }
+        });
+        $("#tetesaninfus").load("{{ url('bacainfus') }}");
+
+        // Ruangan 2
+        $("#volume2").load("{{ url('bacavolume2') }}", function(response, status, xhr) {
+          if (status == "success") {
+            checkAndNotify(response, "Ruangan 2");
+          }
+        });
+        $("#tetesaninfus2").load("{{ url('bacainfus2') }}");
+
+        // Ruangan 3
+        $("#volumeinfus3").load("{{ url('bacavolume3') }}", function(response, status, xhr) {
+          if (status == "success") {
+            checkAndNotify(response, "Ruangan 3");
+          }
+        });
+        $("#tetesaninfus3").load("{{ url('bacainfus3') }}");
+
+      }, 1000);
+
+      function checkAndNotify(response, ruangan) {
+        // Ubah string respons menjadi angka
+        var data = parseInt(response.trim());
+
+        // Bandingkan dengan status notifikasi terakhir
+        var lastStatus = lastNotification[ruangan];
+
+        // Daftar kondisi yang memunculkan notifikasi
+        if (data == 30 && lastStatus != "Menjelang Habis") {
+          addToNotificationList(ruangan, data, "Menjelang Habis");
+        } else if (data == 20 && lastStatus != "Sudah Rendah" && lastStatus != "Menjelang Habis") {
+          addToNotificationList(ruangan, data, "Sudah Rendah");
+        } else if (data == 15 && lastStatus != "Sangat Rendah" && lastStatus != "Sudah Rendah" && lastStatus != "Menjelang Habis") {
+          addToNotificationList(ruangan, data, "Sangat Rendah");
+        } else if (data == 10 && lastStatus != "Kritis" && lastStatus != "Sangat Rendah" && lastStatus != "Sudah Rendah" && lastStatus != "Menjelang Habis") {
+          addToNotificationList(ruangan, data, "Kritis");
+        } else if (data == 5 && lastStatus != "Sangat Kritis" && lastStatus != "Kritis" && lastStatus != "Sangat Rendah" && lastStatus != "Sudah Rendah" && lastStatus != "Menjelang Habis") {
+          addToNotificationList(ruangan, data, "Sangat Kritis");
+        } else if (data == 0 && lastStatus != "Habis" && lastStatus != "Sangat Kritis" && lastStatus != "Kritis" && lastStatus != "Sangat Rendah" && lastStatus != "Sudah Rendah" && lastStatus != "Menjelang Habis") {
+          addToNotificationList(ruangan, data, "Habis");
+        }
+      }
+
+      function addToNotificationList(ruangan, data, status) {
+        // Periksa apakah notifikasi sudah ada
+        var existingElement = $("#" + ruangan + "-" + status);
+
+        // Jika notifikasi belum ada, tambahkan
+        if (existingElement.length === 0) {
+          // Tambahkan notifikasi baru
+          var listElement = $("<li>").text("Ruangan " + ruangan + " - " + status).attr("id", ruangan + "-" + status);
+          $("#notificationList").append(listElement);
+
+          // Tampilkan modal jika belum muncul
+          if (!modalShown) {
+            showModal();
+          }
+
+          // Hapus notifikasi setelah 5 detik
+          listElement.addClass("fade-out");
+          setTimeout(function() {
+            listElement.remove();
+          }, 3000);
+        }
+      }
+
+      // Atur ulang status modalShown saat modal ditutup
+      $("#notificationModal").on("hidden.bs.modal", function() {
+        modalShown = false;
+      });
     });
-    $("#tetesaninfus").load("{{ url('bacainfus') }}");
-
-    // Ruangan 2
-    $("#volume2").load("{{ url('bacavolume2') }}", function(response, status, xhr) {
-      if (status == "success") {
-        checkAndNotify(response, "Ruangan 2");
-      }
-    });
-    $("#tetesaninfus2").load("{{ url('bacainfus2') }}");
-
-    // Ruangan 3
-    $("#volumeinfus3").load("{{ url('bacavolume3') }}", function(response, status, xhr) {
-      if (status == "success") {
-        checkAndNotify(response, "Ruangan 3");
-      }
-    });
-    $("#tetesaninfus3").load("{{ url('bacainfus3') }}");
-
-  }, 1000);
-
-  function checkAndNotify(response, ruangan) {
-    // Ubah string respons menjadi angka
-    var data = parseInt(response.trim());
-
-    // Bandingkan dengan status notifikasi terakhir
-    var lastStatus = lastNotification[ruangan];
-    lastNotification[ruangan] = data;
-
-    // Daftar kondisi yang memunculkan notifikasi
-    if (data <= 30 && data > 20 && lastStatus != "Menjelang Habis") {
-      addToNotificationList(ruangan, data, "Menjelang Habis");
-    } else if (data <= 20 && data > 15 && lastStatus != "Sudah Rendah") {
-      addToNotificationList(ruangan, data, "Sudah Rendah");
-    } else if (data <= 15 && data > 10 && lastStatus != "Sangat Rendah") {
-      addToNotificationList(ruangan, data, "Sangat Rendah");
-    } else if (data <= 10 && data > 5 && lastStatus != "Kritis") {
-      addToNotificationList(ruangan, data, "Kritis");
-    } else if (data <= 5 && data > 0 && lastStatus != "Sangat Kritis") {
-      addToNotificationList(ruangan, data, "Sangat Kritis");
-    } else if (data <= 0 && lastStatus != "Habis") {
-      addToNotificationList(ruangan, data, "Habis");
-    }
-  }
-
-  function addToNotificationList(ruangan, data, status) {
-    // Periksa apakah notifikasi sudah ada
-    var existingElement = $("#" + ruangan + "-" + status);
-
-    // Jika notifikasi belum ada, tambahkan
-    if (existingElement.length === 0) {
-      // Tambahkan notifikasi baru
-      var listElement = $("<li>").text("Ruangan " + ruangan + " - "  + status).attr("id", ruangan + "-" + status);
-      $("#notificationList").append(listElement);
-
-      // Tampilkan modal jika belum muncul
-      if (!modalShown) {
-        showModal();
-      }
-
-      // Hapus notifikasi setelah 5 detik
-      listElement.addClass("fade-out");
-      setTimeout(function() {
-        listElement.remove();
-      }, 3000);
-    }
-  }
-
-  // Atur ulang status modalShown saat modal ditutup
-  $("#notificationModal").on("hidden.bs.modal", function() {
-    modalShown = false;
-  });
-});
-
-
-
-
   </script>
+
+
+
+
 
 
 
