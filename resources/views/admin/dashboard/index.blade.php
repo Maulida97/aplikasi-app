@@ -36,17 +36,6 @@
             {{-- @foreach($data as $key => $val) --}}
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
-                {{-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                  </ul>
-                </div> --}}
-
                 <div class="card-body">
                   <h5 class="card-title"> Ruangan 1  <span></span></h5>
 
@@ -55,9 +44,13 @@
                       <i class="ri-health-book-fill"></i>
                     </div>
                     <div class="ps-3" >
-                      <span style=" font-size: 26px; font-weight: bold; color: #012970" id="volume">145</span><span style="color: #012970; font-size: 26px; font-weight: bold;"> %</span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="volume">145</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> %</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus">145</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                       <br>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus"></span>
+                      {{-- <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus"></span> --}}
                       {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
                     </div>
                   </div>
@@ -69,28 +62,20 @@
 
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
-                {{-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                  </ul>
-                </div> --}}
-
                 <div class="card-body">
                   <h5 class="card-title"> Ruangan 2  <span></span></h5>
-
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="ri-health-book-fill"></i>
                     </div>
                     <div class="ps-3" >
-                      <span style=" font-size: 26px; font-weight: bold; color: #012970" id="volume2"></span><span style="color: #012970; font-size: 26px; font-weight: bold;"> %</span>
-                      <br>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus2"></span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="volume2">
+                      </span><span style="color: #012970; font-size: 30px; font-weight: bold;"> %</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus2">0.00</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
+                      {{-- <br>
+                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus2"></span> --}}
                       {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
                     </div>
                   </div>
@@ -101,29 +86,20 @@
 
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
-                {{-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                  </ul>
-                </div> --}}
-
                 <div class="card-body">
                   <h5 class="card-title"> Ruangan 3  <span></span></h5>
-
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="ri-health-book-fill"></i>
                     </div>
                     <div class="ps-3" >
-                      <span style=" font-size: 26px; font-weight: bold; color: #012970" id="volumeinfus3">145</span>
-                      <span style="color: #012970; font-size: 26px; font-weight: bold;"> %</span>
-                      <br>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus3"></span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="volumeinfus3">145</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> %</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus3">0.00</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
+                      {{-- <br>
+                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus3"></span> --}}
                       {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
                     </div>
                   </div>
@@ -134,17 +110,6 @@
 
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
-                {{-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                  </ul>
-                </div> --}}
-
                 <div class="card-body">
                   <h5 class="card-title"> Ruangan 4  <span></span></h5>
 
@@ -153,9 +118,11 @@
                       <i class="ri-health-book-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>0<span>%</span></h6>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold"></span>
-                      {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> %</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0.00</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                     </div>
                   </div>
                 </div>
@@ -165,16 +132,6 @@
 
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
-                {{-- <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                  </ul>
-                </div> --}}
 
                 <div class="card-body">
                   <h5 class="card-title"> Ruangan 5  <span></span></h5>
@@ -184,9 +141,11 @@
                       <i class="ri-health-book-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>0<span>%</span></h6>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold"></span>
-                      {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> %</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0.00</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                     </div>
                   </div>
                 </div>
@@ -215,9 +174,11 @@
                       <i class="ri-health-book-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>0<span>%</span></h6>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold"></span>
-                      {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> %</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0.00</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                     </div>
                   </div>
                 </div>
@@ -398,7 +359,6 @@ Swal.fire({
                 if (data == 15) return "Sangat Rendah";
                 if (data == 10) return "Kritis";
                 if (data == 5) return "Sangat Kritis";
-                if (data == 0) return "Habis";
                 return "";
             }
         }
