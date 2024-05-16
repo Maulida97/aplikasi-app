@@ -41,7 +41,8 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="ri-health-book-fill"></i>
+                      <i class="ri-contrast-drop-2-line"></i>
+                      {{-- <img src="infus.png" width="40" height="20" alt=""> --}}
                     </div>
                     <div class="ps-3" >
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="volume">145</span>
@@ -50,8 +51,6 @@
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus">145</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                       <br>
-                      {{-- <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus"></span> --}}
-                      {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
                     </div>
                   </div>
                 </div>
@@ -59,6 +58,7 @@
               </div>
             </div><!-- End Sales Card -->
             {{-- @endforeach --}}
+                      {{-- <img src="aplikasi-app/audio/infus.png" width="40" height="20" alt="" type="png"> --}}
 
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
@@ -66,7 +66,7 @@
                   <h5 class="card-title"> Ruangan 2  <span></span></h5>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="ri-health-book-fill"></i>
+                      <i class="ri-contrast-drop-2-line"></i>
                     </div>
                     <div class="ps-3" >
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="volume2">
@@ -90,7 +90,7 @@
                   <h5 class="card-title"> Ruangan 3  <span></span></h5>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="ri-health-book-fill"></i>
+                      <i class="ri-contrast-drop-2-line"></i>
                     </div>
                     <div class="ps-3" >
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="volumeinfus3">145</span>
@@ -115,7 +115,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="ri-health-book-fill"></i>
+                      <i class="ri-contrast-drop-2-line"></i>
                     </div>
                     <div class="ps-3">
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0</span>
@@ -138,7 +138,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="ri-health-book-fill"></i>
+                      <i class="ri-contrast-drop-2-line"></i>
                     </div>
                     <div class="ps-3">
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0</span>
@@ -171,7 +171,7 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="ri-health-book-fill"></i>
+                      <i class="ri-contrast-drop-2-line"></i>
                     </div>
                     <div class="ps-3">
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0</span>
@@ -242,31 +242,15 @@
 
       </div>
     </section> --}}
+    <!-- Audio element untuk bunyi notifikasi -->
+    <audio id="notificationSound">
+        <source src="audio/suara.mp3" type="audio/mpeg">
+    </audio>
+
 
   </main><!-- End #main -->
 
 
-<!-- Modal -->
-{{-- <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ruangan dengan Infus Habis</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="notificationList">
-            <!-- List ruangan dengan infus habis akan ditampilkan di sini -->
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        </div>
-      </div>
-    </div>
-  </div> --}}
 
   <div class="card">
     <div class="modal fade"  id="notificationModal" tabindex="-1">
@@ -354,11 +338,12 @@ Swal.fire({
 
             // Fungsi untuk mendapatkan status berdasarkan data
             function getStatus(data) {
-                if (data == 30) return "Menjelang Habis";
-                if (data == 20) return "Sudah Rendah";
-                if (data == 15) return "Sangat Rendah";
-                if (data == 10) return "Kritis";
-                if (data == 5) return "Sangat Kritis";
+                if (data == 30) return "Volume Infus Akan Habis";
+                if (data == 20) return "Volume Infus Akan Habis";
+                if (data == 15) return "Volume Infus Akan Habis";
+                if (data == 10) return "Volume Infus Akan Habis";
+                if (data == 5) return "Volume Infus Akan Habis";
+                if (data == 0) return "Volume Infus Habis";
                 return "";
             }
         }
@@ -381,23 +366,55 @@ Swal.fire({
         }
 
         function showNotification() {
-            // Gabungkan notifikasi dari semua ruangan ke dalam satu daftar
+            // Inisialisasi variabel untuk menyimpan daftar ruangan yang kondisinya terpenuhi
             var notificationList = "<ul>";
+
+            // Loop melalui semua ruangan
             for (var key in lastNotification) {
-                notificationList += "<li>Ruangan " + key + " - " + lastNotification[key] + "</li>";
+                // Periksa apakah kondisi ruangan saat ini terpenuhi
+                if (lastNotification[key]) {
+                    // Tambahkan ruangan ke daftar notifikasi
+                    notificationList += "<li>" + key + " - " + lastNotification[key] + "</li>";
+                }
             }
+
             notificationList += "</ul>";
 
-            // Tampilkan notifikasi dengan SweetAlert
-            Swal.fire({
-                title: "Peringatan!",
-                html: notificationList,
-                icon: "warning",
-                confirmButtonText: "Tutup"
-            });
+            // Periksa apakah ada ruangan yang kondisinya terpenuhi
+            if (notificationList !== "<ul></ul>") {
+                // Tampilkan notifikasi dengan SweetAlert
+                Swal.fire({
+                    title: "Peringatan!",
+                    html: notificationList,
+                    icon: "warning",
+                    confirmButtonText: "Tutup"
+                }).then((result) => {
+                    // Mainkan bunyi hanya jika pengguna menekan tombol "Tutup"
+                    if (result.isConfirmed) {
+                        stopNotificationSound();
+                    }
+                });
+
+                // Mainkan bunyi notifikasi secara otomatis
+                playNotificationSound();
+            }
+        }
+
+        function playNotificationSound() {
+            // Memutar bunyi notifikasi
+            var audio = document.getElementById("notificationSound");
+            audio.play();
+        }
+
+        function stopNotificationSound() {
+            // Hentikan pemutaran bunyi notifikasi
+            var audio = document.getElementById("notificationSound");
+            audio.pause();
+            audio.currentTime = 0; // Kembali ke awal file audio
         }
     });
 </script>
+
 
 
 
