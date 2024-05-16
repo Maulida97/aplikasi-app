@@ -338,11 +338,11 @@ Swal.fire({
 
             // Fungsi untuk mendapatkan status berdasarkan data
             function getStatus(data) {
-                if (data == 30) return "Volume Infus Akan Habis";
-                if (data == 20) return "Volume Infus Akan Habis";
-                if (data == 15) return "Volume Infus Akan Habis";
-                if (data == 10) return "Volume Infus Akan Habis";
-                if (data == 5) return "Volume Infus Akan Habis";
+                if (data == 30) return "Volume Infus Menjelang Habis";
+                if (data == 20) return "Volume Infus Sudah Rendah";
+                if (data == 15) return "Volume Infus Sangat Rendah";
+                if (data == 10) return "Volume Infus Kritis";
+                if (data == 5) return "Volume Infus Sangat Kritis";
                 if (data == 0) return "Volume Infus Habis";
                 return "";
             }
