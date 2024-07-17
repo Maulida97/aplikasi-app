@@ -51,6 +51,10 @@
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus">145</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                       <br>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktujam">145</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktumenit">145</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -74,9 +78,11 @@
                       <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus2">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
-                      {{-- <br>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus2"></span> --}}
-                      {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                      <br>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktujam2">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktumenit2">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -98,9 +104,11 @@
                       <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus3">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
-                      {{-- <br>
-                      <span class="text-muted small pt-2 ps-1">Status Infus </span><span class="text-success small pt-1 fw-bold" id="tetesaninfus3"></span> --}}
-                      {{-- <span class="text-muted small pt-2 ps-1">increase</span> --}}
+                      <br>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktujam3">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktumenit3">0</span>
+                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -307,6 +315,8 @@ Swal.fire({
                 }
             });
             $("#tetesaninfus").load("{{ url('bacainfus') }}");
+            $("#waktujam").load("{{ url('bacajam') }}");
+            $("#waktumenit").load("{{ url('bacamenit') }}");
 
             // Ruangan 2
             $("#volume2").load("{{ url('bacavolume2') }}", function(response, status, xhr) {
@@ -315,6 +325,8 @@ Swal.fire({
                 }
             });
             $("#tetesaninfus2").load("{{ url('bacainfus2') }}");
+            $("#waktujam2").load("{{ url('bacajam2') }}");
+            $("#waktumenit2").load("{{ url('bacamenit2') }}");
 
             // Ruangan 3
             $("#volumeinfus3").load("{{ url('bacavolume3') }}", function(response, status, xhr) {
@@ -323,6 +335,8 @@ Swal.fire({
                 }
             });
             $("#tetesaninfus3").load("{{ url('bacainfus3') }}");
+            $("#waktujam3").load("{{ url('bacajam3') }}");
+            $("#waktumenit3").load("{{ url('bacamenit3') }}");
 
         }, 1000);
 

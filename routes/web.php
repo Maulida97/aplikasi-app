@@ -34,17 +34,17 @@ Route::get('/', function () {
 });
 
 
-Route::get('/cobs', function () {
-    notify()->success('Laravel Notify is awesome!');
-    notify()->success('Laravel Notify is awesome!');
-    notify()->success('Laravel Notify is awesome!');
-    notify()->success('Laravel Notify is awesome!');
-    notify()->success('Laravel Notify is awesome!');
-    notify()->success('Laravel Notify is awesome!');
-    notify()->success('Laravel Notify is awesome!');
+// Route::get('/cobs', function () {
+//     notify()->success('Laravel Notify is awesome!');
+//     notify()->success('Laravel Notify is awesome!');
+//     notify()->success('Laravel Notify is awesome!');
+//     notify()->success('Laravel Notify is awesome!');
+//     notify()->success('Laravel Notify is awesome!');
+//     notify()->success('Laravel Notify is awesome!');
+//     notify()->success('Laravel Notify is awesome!');
 
-    return view('coba');
-});
+//     return view('coba');
+// });
 
 
 Route::get('/register', [RegisController::class, 'index'])->name('register');
@@ -109,9 +109,9 @@ Route::get('/sensor/delete/{id}', [SensorController::class, 'delete'])->name('se
 
 
 //Route di node MCU
-Route::get('/simpan/{nilaiBerat}/{nilaiTetesan}', [SensorController::class, 'simpan']);
-Route::get('/simpan2/{nilaiBerat2}/{nilaiTetesan2}', [SensorController::class, 'simpan2']);
-Route::get('/simpan3/{nilaiBerat3}/{nilaiTetesan3}', [SensorController::class, 'simpan3']);
+Route::get('/simpan/{nilaiBerat}/{nilaiTetesan}/{waktujam}/{waktumenit}', [SensorController::class, 'simpan']);
+Route::get('/simpan2/{nilaiBerat2}/{nilaiTetesan2}/{waktujam2}/{waktumenit2}', [SensorController::class, 'simpan2']);
+Route::get('/simpan3/{nilaiBerat3}/{nilaiTetesan3}/{waktujam3}/{waktumenit3}', [SensorController::class, 'simpan3']);
 
 
 // Route::get('/simpan/{deviceID}/{nilaiBerat}/{nilaiTetesan}', [SensorController::class, 'simpan']);
@@ -120,11 +120,18 @@ Route::get('/simpan3/{nilaiBerat3}/{nilaiTetesan3}', [SensorController::class, '
 // //ajax realtime
 Route::get('/bacavolume', [SensorController::class, 'bacavolume']);
 Route::get('/bacainfus', [SensorController::class, 'bacainfus']);
+Route::get('/bacajam', [SensorController::class, 'bacajam']);
+Route::get('/bacamenit', [SensorController::class, 'bacamenit']);
+
 Route::get('/bacavolume2', [SensorController::class, 'bacavolume2']);
 Route::get('/bacainfus2', [SensorController::class, 'bacainfus2']);
+Route::get('/bacajam2', [SensorController::class, 'bacajam2']);
+Route::get('/bacamenit2', [SensorController::class, 'bacamenit2']);
+
 Route::get('/bacavolume3', [SensorController::class, 'bacavolume3']);
 Route::get('/bacainfus3', [SensorController::class, 'bacainfus3']);
-
+Route::get('/bacajam3', [SensorController::class, 'bacajam3']);
+Route::get('/bacamenit3', [SensorController::class, 'bacamenit3']);
 
 Route::get('/bacainfus3', [SensorController::class, 'bacainfus3']);
 
