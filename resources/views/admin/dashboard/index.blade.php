@@ -51,10 +51,13 @@
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus">145</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                       <br>
-                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktujam">145</span>
-                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> Jam</span>
-                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktumenit">145</span>
-                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> menit</span>
+                      <br>
+                      <span style=" font-size: 15px; font-weight: bold; color: #012970">Estimasi Waktu Habis :</span>
+                      <br>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" id="waktujam">145</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" id="waktumenit">145</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -79,10 +82,13 @@
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus2">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                       <br>
-                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktujam2">0</span>
-                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> Jam</span>
-                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktumenit2">0</span>
-                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> menit</span>
+                      <br>
+                      <span style=" font-size: 15px; font-weight: bold; color: #012970">Estimasi Waktu Habis :</span>
+                      <br>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" id="waktujam2">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" id="waktumenit2">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -105,10 +111,13 @@
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="tetesaninfus3">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
                       <br>
-                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktujam3">0</span>
-                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> Jam</span>
-                      <span style=" font-size: 30px; font-weight: bold; color: #012970" id="waktumenit3">0</span>
-                      <span style="color: #012970; font-size: 30px; font-weight: bold;"> menit</span>
+                      <br>
+                      <span style=" font-size: 15px; font-weight: bold; color: #012970">Estimasi Waktu Habis :</span>
+                      <br>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" id="waktujam3">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" id="waktumenit3">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -131,6 +140,14 @@
                       <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
+                      <br>
+                      <br>
+                      <span style=" font-size: 15px; font-weight: bold; color: #012970">Estimasi Waktu Habis :</span>
+                      <br>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970" >0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -154,6 +171,14 @@
                       <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
+                      <br>
+                      <br>
+                      <span style=" font-size: 15px; font-weight: bold; color: #012970">Estimasi Waktu Habis :</span>
+                      <br>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
@@ -187,6 +212,14 @@
                       <span style="color: #012970; font-size: 30px; font-weight: bold;">| </span>
                       <span style=" font-size: 30px; font-weight: bold; color: #012970" id="">0.00</span>
                       <span style="color: #012970; font-size: 30px; font-weight: bold;"> ml/s</span>
+                      <br>
+                      <br>
+                      <span style=" font-size: 15px; font-weight: bold; color: #012970">Estimasi Waktu Habis :</span>
+                      <br>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> Jam</span>
+                      <span style=" font-size: 20px; font-weight: bold; color: #012970">0</span>
+                      <span style="color: #012970; font-size: 20px; font-weight: bold;"> menit</span>
                     </div>
                   </div>
                 </div>
