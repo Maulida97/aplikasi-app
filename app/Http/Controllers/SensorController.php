@@ -40,12 +40,12 @@ class SensorController extends Controller
                 "updated_at" => $tgl,
             ]);
 
-            // $data1 = sensor::where("id",'1')->first();
-            // $berat = $data1->volume_infus;
-            // $tetesan = $data1->tetesan_infus;
-            // $jam = $data1->waktu_jam;
-            // $menit = $data1->waktu_menit;
-            // $response = Http::get('https://edgeinfus.my.id/api/simpan/'.$tetesan.'/'.$berat.'/'.$jam.'/'.$menit);
+            $data1 = sensor::where("id",'1')->first();
+            $berat = $data1->volume_infus;
+            $tetesan = $data1->tetesan_infus;
+            $jam = $data1->waktu_jam;
+            $menit = $data1->waktu_menit;
+            $response = Http::get('https://edgeinfus.my.id/api/simpan/'.$tetesan.'/'.$berat.'/'.$jam.'/'.$menit);
 
     }
     public function simpan2($nilaiTetesan2, $nilaiBerat2, $waktujam2, $waktumenit2)
@@ -62,12 +62,12 @@ class SensorController extends Controller
                 "updated_at" => $tgl,
             ]);
 
-            // $data1 = sensor::where("id",'2')->first();
-            // $berat = $data1->volume_infus;
-            // $tetesan = $data1->tetesan_infus;
-            // $jam = $data1->waktu_jam;
-            // $menit = $data1->waktu_menit;
-            // $response = Http::get('https://edgeinfus.my.id/api/simpan2/'.$tetesan.'/'.$berat.'/'.$jam.'/'.$menit);
+            $data1 = sensor::where("id",'2')->first();
+            $berat = $data1->volume_infus;
+            $tetesan = $data1->tetesan_infus;
+            $jam = $data1->waktu_jam;
+            $menit = $data1->waktu_menit;
+            $response = Http::get('https://edgeinfus.my.id/api/simpan2/'.$tetesan.'/'.$berat.'/'.$jam.'/'.$menit);
 
     }
 
@@ -85,12 +85,12 @@ class SensorController extends Controller
                 "updated_at" => $tgl,
             ]);
 
-            // $data1 = sensor::where("id",'3')->first();
-            // $berat = $data1->volume_infus;
-            // $tetesan = $data1->tetesan_infus;
-            // $jam = $data1->waktu_jam;
-            // $menit = $data1->waktu_menit;
-            // $response = Http::get('https://edgeinfus.my.id/api/simpan3/'.$tetesan.'/'.$berat.'/'.$jam.'/'.$menit);
+            $data1 = sensor::where("id",'3')->first();
+            $berat = $data1->volume_infus;
+            $tetesan = $data1->tetesan_infus;
+            $jam = $data1->waktu_jam;
+            $menit = $data1->waktu_menit;
+            $response = Http::get('https://edgeinfus.my.id/api/simpan3/'.$tetesan.'/'.$berat.'/'.$jam.'/'.$menit);
 
 
     }
